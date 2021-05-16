@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "../../App.css";
 // import { useDispatch } from "react-redux";
 
 const LoginForm = () => {
@@ -26,11 +27,11 @@ const LoginForm = () => {
         <div id="login-form">
             <form onSubmit={handleSubmit}>
                 <div className="loginInput">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username">Username:</label>
                     <input type="text" name="username" onChange={handleUsername}/>
                 </div>
                 <div className="loginInput">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password">Password:</label>
                     <input type="password" name="password" onChange={handlePassword}/>
                 </div>
                 <div className="loginInput">
