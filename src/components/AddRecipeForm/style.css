@@ -12,7 +12,6 @@ form{
 }
 
 input[type=text], select {
-    width: 30%;
     padding: 12px 20px;
     margin: 8px 0;
     display: inline-block;
@@ -54,6 +53,7 @@ ul{
     margin: 0;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 10px;
     
   }
