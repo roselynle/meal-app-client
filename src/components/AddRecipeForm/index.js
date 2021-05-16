@@ -1,88 +1,140 @@
-import React, {useState} from "react";
+
+import React from "react";
+import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
+import ReactDOM from "react-dom";
 import './style.css'
 
 
 
 
 function AddRecipeForm() {
+  const { register, control, handleSubmit, reset, watch } = useForm({
 
-  const[addIngredientClicked, setAddIngredientClicked] = useState(0)
+  });
+  const { fields, append, remove } = useFieldArray(
+    {
+      control,
+      name: "ingredients"
+    }
+  );
 
-  const addIngredient = (prevState) => {
-    setAddIngredientClicked( prevState + 1)
-  }
+  const onSubmit = (data) => console.log("data", data);
+
+  const dietaryRequirements  = ['Vegan', 'Vegetarian','Pescatarian', 'Gluten-free', 'Diary-free', 'Nut-free']
+
+  // Ability to control fields - like onchange
+  const watchRecipeName = watch("recipeName");
+  const watchDescription = watch("recipeDescription");
+  const watchIngredientInput =watch(`ingredients`)
+  const instructions =watch(`Instructions`)
 
 
-    return (
-        
-        <form id="addRecipeForm">
-          <label htmlFor="recipeName">Recipe Name</label>
-          <input type="text" id="recipeName" name="recipeName" />
-          <input type="file" id="photo" name="photo"/>
-          <label htmlFor="descriptiption">Description</label>
-          <input type="text" id="description" name="description" />
-          <input type="button" id="addIngredient" name="addIngredient" value="Add ingredient" onClick={()=> addIngredient(addIngredientClicked)}/>
-          {/* click button an a new input field comes up  , this input field needs to have a drop down list*/}
-          take the saved ingredient 
-          { 
+
+  console.log(watchRecipeName);
+  console.log(watchDescription)
+  console.log(watchIngredientInput)
+  console.log(instructions)
+
+  // The following is useWatch example
+  // console.log(useWatch({ name: "test", control }));
+
+
+
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div class="form-group">
+      <label htmlFor="recipeName">Recipe Name:</label>
+      <input id="recipeName" {...register("recipeName")} />
+      </div>
+
+      <div class="form-group">
+      <label htmlFor="recipeDescription">Description:</label>
+      <input {...register("recipeDescription")} />
+      </div>
+
+      <div class="form-group">
+      <label htmlFor="imageUpload">Upload an image:</label>
+      <input type="file" {...register("image-upload")} />
+      </div>
+
+      <div  class="form-group">
+      <label htmlFor="">Add your ingredients:</label>
+      <ul>
+        {fields.map((item, index) => {
+          return (
+            <li class="ingredient" key={item.id}>
           
-          
-          addIngredientClicked > 1?
-
            
-<div>hello</div>
-              :
+                <input placeholder= "2"
+                defaultValue={`${item.amount}`} // make sure to set up defaultValue
+                {...register(`ingredients.${index}.amount`)}
+              />
+               <select defaultValue={`${item.measure}`} // make sure to set up defaultValue
+                {...register(`ingredients.${index}.measure`)}>
+                    <option value="null">-</option>
 
-              <div>bye</div>
-            }
+                    <option value="g">kg</option>
+                    <option value="g">g</option>
+                    <option value="L">L</option>
+                    <option value="mL">ml</option>
+                    <option value="tbsp">tbsp</option>
+                    <option value="tsp">tsp</option> 
+                    {/* NEED TO EDIT */}
 
-  
-          <label  htmlFor="">Is your dish any of the following?</label>
-          <label htmlFor="vegetarian">Vegetarian</label>
-          <input type="checkbox" id="vegetarian" name="vegetarian" value="vegetarian"/>
-          <label htmlFor="vegan">Vegan</label>
-          <input type="checkbox" id="vegan" name="vegan" value="vegan"/>
-          <label htmlFor="pescatarian">Pescatarian</label>
-          <input type="checkbox" id="pescatarian" value="pescatarian"/>
-          <label htmlFor="dairy-free">Dairy-free</label>
-          <input type="checkbox" id="dairy-free" value="dairy-free" value="dairy-free"/>
-          <label htmlFor="gluten-free">Gluten-free</label>
-          <input type="checkbox" id="gluten-free" value="gluten-free" value="gluten-free"/>
-          <label htmlFor="nut-free">Nut-free</label>
-          <input type="checkbox" id="nut-free" value="nut-free" value="nut-free"/>
+                </select>
+                <input
+              placeholder="eggs"
+                defaultValue={`${item.ingredient}`} // make sure to set up defaultValue
+                {...register(`ingredients.${index}.ingredient`)}
+              />
 
-
-  
-          <label htmlFor="instructions">Instructions</label>
-          <textarea id="instructions"></textarea>
+            
+              <button id="delete-button" type="button" onClick={() => remove(index)}>
+              &#10008;
+              </button>
+            </li>
+          );
+        })}
+      </ul>
      
+      <section>
+        <button
+          type="button"
+          onClick={() => {
+            append({ amount:"", measure: "",ingredient: "" });
+          }}
+        >
+          Add Ingredient
+        </button>
+       
 
-          <input type="submit" value="Add recipe"/>
-
+      </section>
+      </div>
 
           
+      <div class="form-group">
+
+      <label htmlFor="instructions">Instructions:</label>
+      <textarea {...register("Instructions")}></textarea>
+      </div>
 
 
+      <fieldset id="dietary-requirements">
+      <legend>Is your food any of the following?</legend>
+      {dietaryRequirements.map((req, index) => {
+          return (
+            <div class="checkbox">
+            <label htmlFor={`${req}`}>{`${req}`}</label>
+            <input type="checkbox"  id={`${req}`} {...register(`dietary-req.${index}.${req}`)}/>
+            </div>
 
+          )})}
+      </fieldset>
 
-
-
-          {/* <input type="checkbox">Vegetarian</input>
-          <input type="checkbox">Pescatarian</input>
-          <input type="checkbox">Nut Free</input>  */}
-
-          {/* <label htmlFor="">Instructions</label>
-          <textarea></textarea> */}
-
-
-
-        </form>
-
-     
-
-    );
-  };
-
-
+      <input type="submit" />
+    </form>
+  );
+}
 
 export default AddRecipeForm;
