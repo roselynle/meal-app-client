@@ -1,9 +1,10 @@
 import React from "react";
-import { RecipeCards } from "../../components";
+import { RecipeCards, NavBar } from "../../components";
 
 const Recipes = () => {
     return (
         <>
+        <NavBar/>
             <h1>Recipes</h1>
             <RecipeCards/>
         </>
