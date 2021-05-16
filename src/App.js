@@ -12,6 +12,7 @@ function App() {
                 <Route path='/register' component={Pages.Register}/>
                 <Route path="/meals" component={Pages.Meals} />
                 <Route path="/recipes" component={Pages.Recipes} />
+                <Route component={Pages.NotFound} />
             </Switch>
         </>
     );
