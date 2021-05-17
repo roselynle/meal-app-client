@@ -2,27 +2,25 @@ import React, { useState } from "react";
 import "../../App.css";
 import { useDispatch } from "react-redux";
 import { useHistory } from 'react-router-dom'
+import { loginUser } from "../../actions"
 
 const LoginForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
+    const dispatch = useDispatch();
+    const history = useHistory()
+
     const handleUsername = (e) => {
-        console.log(e.target.value);
         setUsername(e.target.value);
     };
 
     const handlePassword = (e) => {
-        console.log(e.target.value);
         setPassword(e.target.value);
     };
-
-    const dispatch = useDispatch();
-    const history = useHistory()
-
     const handleSubmit = (e) => {
         e.preventDefault();
-        dispatch(login(username, password));
+        dispatch(loginUser(username, password));
         history.push("/meals");
     };
 
