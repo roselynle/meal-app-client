@@ -11,6 +11,8 @@ function App() {
             <Switch>
                 <Route exact path="/" component={Pages.Home} />
                 <Route path="/recipes" component={Pages.Recipes} />
+                <Route path="/newrecipe" component={Pages.AddRecipe}/>
+
             </Switch>
             
         </>
