@@ -1,7 +1,6 @@
 const initState = {
-    recipes: [  {test:"test"},
-    {test:'test1'}],
-    loading: true
+    recipes: [],
+    loading: false
 
 }
   
