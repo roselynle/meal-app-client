@@ -1,4 +1,5 @@
 import React, { useState }  from 'react';
+import "../../App.css";
 
 const RegisterForm = () =>  {
     const [state , setState] = useState({
@@ -11,15 +12,15 @@ const RegisterForm = () =>  {
             <div id="register-form">
                 <form>
                     <div className="registerInput">
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Username:</label>
                         <input type="text" name="username" />
                     </div>
                     <div className="registerInput">
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password:</label>
                         <input type="password" name="password" />
                     </div>
                     <div className="registerInput">
-                        <label htmlFor="password">Confirm Your Password:</label>
+                        <label htmlFor="password">Confirm Password:</label>
                         <input type="password" name="passwordConfirmation" />
                     </div>
                     <div className="registerInput">

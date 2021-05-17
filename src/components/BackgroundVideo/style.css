@@ -4,4 +4,6 @@ video {
   height: 100%;
   position: fixed;
   z-index: -1;
+  opacity: 0.9;
 }
+

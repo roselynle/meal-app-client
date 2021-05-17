@@ -1,11 +1,12 @@
 import React from "react";
-import { MealCards } from "../../components";
+import { MealCards, NavBar } from "../../components";
 
 const Meals = () => {
     return (
         <>
+            <NavBar />
             <h1>Here are your meals for the week:</h1>
-            <MealCards/>
+            <MealCards />
         </>
     );
 };
