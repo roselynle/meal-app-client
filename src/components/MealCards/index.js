@@ -9,7 +9,6 @@ const MealCards = () => {
             <div className="meal-card-body">
                 <h3 className="meal-card-title">Day {d.day}</h3>
                 <p>Meal</p>
-                <h1> hello</h1>
             </div>
         </div>
     );
