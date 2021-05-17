@@ -1,0 +1,107 @@
+form{
+    background-color:#c7dfda ;
+    width:50%;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    padding:20px;
+   
+
+}
+
+input[type=text], select {
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    height:10%;
+  }
+
+  input[type=submit] {
+
+    background-color:#92d1c4;
+    color: black;
+    margin: 8px 0;
+
+    border-radius: 4px;
+    cursor: pointer;
+    width:30%;
+  }
+  
+
+  .form-group{
+    background-color:#92d1c4;
+    width: 90%;
+    display:flex;
+    flex-direction: column;
+    padding: 10px;
+    border-radius: 4px;
+  }
+
+
+ul{
+  padding:0
+}
+
+.ingredient{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    
+  }
+
+
+  select{
+    width:100px;
+    padding:0px;
+    height: 40px;
+  }
+
+  #delete-button{
+    border:none;
+    background-color:#92d1c4;
+  }
+
+  input{
+    height: 40px;
+    border-radius: 5px;
+    border:none;
+    padding:10px;
+  }
+
+  textarea{
+    border:none;
+    border-radius: 5px;
+
+  }
+
+  #dietary-requirements{
+    background-color: #92d1c4;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+
+
+  }
+
+  .checkbox{
+    margin: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+
+  .checkbox label{
+    margin-bottom: 0;
+    margin-right:10px;
+    
+  }
