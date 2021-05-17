@@ -1,14 +1,21 @@
 import React from "react";
 import { useSelector, useDispatch } from 'react-redux';
+import { Link, Redirect, useHistory } from 'react-router-dom'
 import "./style.css"
 
 const RecipeCards = (props) => {
+    const history = useHistory()
+
+    const handleclick = (id) => {
+        history.push(`/recipes/${id}`)
+        //history.push keeps react state whereas redirect clears on refresh
+    }
 
     const dispatch = useDispatch()
     const  recipes  = useSelector(state => state.recipes)
     const loading = useSelector(state => state.loading)
 
-    console.log(props.recipe.recipe_name)
+    console.log(typeof(props.recipe.id))
 
     return (
         <div className="recipe-card">
@@ -16,13 +23,19 @@ const RecipeCards = (props) => {
             <div className="recipe-card-body">
                 <h3 className="recipe-card-title">{props.recipe.recipe_name}</h3>
                 <p>{props.recipe.recipe_description}</p>
-                <a
-                    href={"http://0.0.0.0:8080/recipes"} 
+                {/* <Redirect to={`recipes/${props.recipe.id}`}> */}
+                {/* <a
+                    href={`http://0.0.0.0:8080/recipes/${props.recipe.id}`} 
                     target="blank"
                     className="recipe-link"
                 >
                     See recipe here!
-                </a>
+                </a> */}
+
+                <button onClick={() => handleclick(props.recipe.id)}>
+                    click
+                </button>
+   
                 {/* link above to be updated */}
                 {/* Create a save button and import here */}
             </div>
