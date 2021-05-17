@@ -24,8 +24,7 @@ const LoginForm = () => {
     };
 
     return (
-        <div id="login-form">
-            <form onSubmit={handleSubmit}>
+            <form id="login-form">
                 <div className="loginInput">
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" onChange={handleUsername}/>
@@ -34,11 +33,10 @@ const LoginForm = () => {
                     <label htmlFor="password">Password:</label>
                     <input type="password" name="password" onChange={handlePassword}/>
                 </div>
-                <div className="loginInput">
-                    <input id="submit-btn" type="submit" value="Login" />
+                <div className="loginButton">
+                    <button onClick={handleSubmit}>Login</button>
                 </div>
             </form>
-        </div>
     );
 };
 export default LoginForm;
