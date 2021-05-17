@@ -39,11 +39,11 @@ body {
   text-align: center;
 }
 
-.registerInput {
+.register-input {
   margin: 20px 0px;
 }
 
-.registerInput label {
+.register-input label {
   margin-right: 10px;
 }
 
@@ -51,11 +51,11 @@ body {
   text-align: center;
 }
 
-.loginInput {
+.login-input {
   margin: 20px 0px;
 }
 
-.loginInput label {
+.login-input label {
   margin-right: 10px;
 }
 

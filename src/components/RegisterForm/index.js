@@ -8,23 +8,24 @@ const RegisterForm = () =>  {
         password : "",
         passwordConfirmation : ""
     })
+
         return (
             <div id="register-form">
                 <form>
-                    <div className="registerInput">
+                    <div className="register-input">
                         <label htmlFor="username">Username:</label>
                         <input type="text" name="username" />
                     </div>
-                    <div className="registerInput">
+                    <div className="register-input">
                         <label htmlFor="password">Password:</label>
                         <input type="password" name="password" />
                     </div>
-                    <div className="registerInput">
+                    <div className="register-input">
                         <label htmlFor="password">Confirm Password:</label>
                         <input type="password" name="passwordConfirmation" />
                     </div>
-                    <div className="registerInput">
-                        <input id="submit-btn" type="submit" value="Register" />
+                    <div className="register-button">
+                    <button>Register</button>
                     </div>
                 </form>
             </div>

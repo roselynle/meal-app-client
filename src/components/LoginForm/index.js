@@ -25,15 +25,15 @@ const LoginForm = () => {
 
     return (
             <form id="login-form">
-                <div className="loginInput">
+                <div className="login-input">
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" onChange={handleUsername}/>
                 </div>
-                <div className="loginInput">
+                <div className="login-input">
                     <label htmlFor="password">Password:</label>
                     <input type="password" name="password" onChange={handlePassword}/>
                 </div>
-                <div className="loginButton">
+                <div className="login-button">
                     <button onClick={handleSubmit}>Login</button>
                 </div>
             </form>
