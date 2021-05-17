@@ -59,28 +59,52 @@ body {
   margin-right: 10px;
 }
 
-nav {
+/* Navbar */
+.main-nav {
   width: 100%;
-  background-color: #444140;
+  background-color: #92d1c4;
   height: 50px;
   display: flex;
   justify-content: space-around;
-  color: white;
   position: -webkit-sticky;
   top:0;
 }
 
-nav > a {
+.main-nav > a {
   transition: all 0.1s;
   width: 100%;
   text-align: center;
   text-decoration: none;
-  color: white;
+  color: black;
   padding-top: 14px;
 }
 
-nav > a:hover {
-  background-color: #909090;
-  color: black;
+.main-nav > a:hover {
+  background-color: #49a695;
+  color: white;
   text-decoration: none;
+}
+
+/* Meals page */
+.meal-card {
+  background-color: #c7dfda;
+  border-radius: 5px;
+  color: black;
+  text-align: center;
+  padding: 2rem;
+  margin: 0.5rem;
+}
+
+.row {
+  justify-content: center;
+}
+
+#meals-container {
+  text-align: center;
+  padding-top: 30px;
+}
+
+/* New recipe page */
+#new-recipe-container h1 {
+ text-align: center;
 }
