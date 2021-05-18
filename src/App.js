@@ -13,7 +13,8 @@ function App() {
                 <Route path='/login' component={Pages.Login}/>
                 <Route path='/register' component={Pages.Register}/>
                 <Route path="/meals" component={Pages.Meals} />
-                <Route path="/recipes" component={Pages.Recipes} />
+                <Route exact path="/recipes" component={Pages.Recipes} />
+                <Route path="/recipes/:id" component={Pages.RecipePage}/>
                 <Route path="/newrecipe" component={Pages.AddRecipe}/>
                 <Route component={Pages.NotFound} />
             </Switch>

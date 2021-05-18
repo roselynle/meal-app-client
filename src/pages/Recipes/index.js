@@ -25,7 +25,6 @@ const Recipes = () => {
         <>
         <NavBar/>
             <h1>Recipes</h1>
-            
       
         {
             loading ?
