@@ -41,7 +41,7 @@ const RegisterForm = () =>  {
     }
 
 function login(data){
-    localStorage.setItem('username', data.username);
+    sessionStorage.setItem('username', data.username);
 }
 
         return (

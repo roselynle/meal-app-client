@@ -5,7 +5,7 @@ import "../../App.css";
 const NavBar = () => {
 
     function handleLogout() {
-    localStorage.clear();
+    sessionStorage.clear();
 }
 
     return (
