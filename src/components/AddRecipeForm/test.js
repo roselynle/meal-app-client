@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react';
 import AddRecipeForm from './';
 
+
 describe('Form', () => {
 
     beforeEach(() => {
@@ -68,10 +69,41 @@ describe('Form', () => {
         
 
         });
-                    
-                
-            
+
+
+    test("handleChange is called when input changes", () =>{
+        const file = new File(['hello'], 'hello.png', {type: 'image/png'})
+        const handleChange = jest.fn()
+
+
+        let fileinput = screen.getByLabelText('Upload an image:')
+        userEvent.upload(fileinput, file)
+        expect(fileinput.files).toHaveLength(1)
+    })
     
+                
+    test("expect uploaded to be present on click of upload button", () => {
+    // const file = new File(['hello'], 'hello.png', {type: 'image/png'})
+    const file = new File(['hello'], 'hello.png', {type: 'image/png'})
+    let fileinput = screen.getByLabelText('Upload an image:')
+    userEvent.upload(fileinput, file)
+
+    let button = screen.getByText('Click to Upload')
+    userEvent.click(button)
+    let image = screen.getByRole('img')
+    expect(image).toBeInTheDocument
+
+})
+
+test("expect prompt to click upload to be present if click to upload has not been clicked", () => {
+    // const file = new File(['hello'], 'hello.png', {type: 'image/png'})
+    const file = new File(['hello'], 'hello.png', {type: 'image/png'})
+    let fileinput = screen.getByLabelText('Upload an image:')
+    userEvent.upload(fileinput, file)
+    let image = screen.getByText('Please choose an image and click upload')
+    expect(image).toBeInTheDocument
+
+})
     
         
 

@@ -11,6 +11,11 @@ const Meals = () => {
             <MealCards />
             </div>
             </div>
+
+            <section>
+                <h2> Your favourites</h2>
+                <p> Drag and drop into you meal plan</p>
+            </section>
         </>
     );
 };

@@ -25,7 +25,6 @@ function AddRecipeForm() {
   const [imageUploaded, setImageUploaded] = useState(false)
 
   const handleChange = e => {
-    console.log(e.target.files[0])
       setImage(e.target.files[0]);
 
 
@@ -61,9 +60,7 @@ function AddRecipeForm() {
   };
 
   const onSubmit = (data) => {
-    console.log(url)
     data.image_url = url
-    console.log(data)
   
     
 
@@ -112,7 +109,7 @@ function AddRecipeForm() {
 
       <div className="form-group">
         <label htmlFor="imageUpload">Upload an image:</label>
-        <input type="file" onChange={handleChange} required />
+        <input type="file" id="imageUpload" onChange={handleChange} required />
         <button onClick={handleUpload}>Click to Upload</button>
         {imageUploaded? <img src={url}/>:<p>Please choose an image and click upload</p>}
       </div>
