@@ -9,8 +9,14 @@ describe('Login Form', () => {
 
     describe('Login Button', () => {
         test('it renders a login button', () => {
-            const button = screen.getByRole('button')
-            expect(button.textContent).toContain('Login')
+            const login = screen.getByRole('login')
+            expect(login).toBeInTheDocument()
+        })
+    })
+        describe('Login inputs', () => {
+        test('it renders an input for username and password', () => {
+            const input = screen.getAllByRole('login-input')
+            expect(input).toHaveLength(2)
         })
     })
 })

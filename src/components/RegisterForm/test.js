@@ -9,8 +9,8 @@ describe('Register Form', () => {
 
     describe('Register Button', () => {
         test('it renders a register button', () => {
-            const button = screen.getByRole('button')
-            expect(button.textContent).toContain('Register')
+            const register = screen.getByRole('register')
+            expect(register).toBeInTheDocument()
         })
-    })
+})
 })

@@ -64,7 +64,7 @@ function login(data){
                         <input type="password" name="passwordConfirmation" />
                     </div> */}                  
                     <div className="register-button">
-                    <input type="submit" value="Register"/>
+                    <input role="register" type="submit" value="Register"/>
                 </div>
                 </form>
             </div>
