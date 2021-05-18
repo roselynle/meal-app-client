@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect }  from 'react';
 import { Switch, Route } from "react-router-dom";
 import * as Pages from "./pages";
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -6,6 +6,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // import './style.css';
 
 function App() {
+    const [user, setUser] = useState("");
+    
     return (
         <>
             <Switch>
