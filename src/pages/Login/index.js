@@ -1,6 +1,7 @@
 import React from "react";
 import { LoginForm } from "../../components";
 import { NavLink } from "react-router-dom";
+import "../../App.css";
 
 const Login = () => {
     return (

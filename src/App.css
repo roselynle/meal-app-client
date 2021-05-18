@@ -1,12 +1,16 @@
 
 /* General Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins&display=swap');
+
 body {
     margin: 0 auto;
+    background-color: #fcf9f4 !important;
 }
 
 * {
     margin: 0;
     padding: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Website Landing Page */
@@ -19,7 +23,7 @@ body {
   display: block;
   position: absolute;
   top: 50%;
-  left: 20%;
+  left: 19%;
   transform: translate(-50%, -50%);
 }
 
@@ -27,6 +31,8 @@ body {
   font-size: 6rem;
   padding: 10px;
   color: white;
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
 }
 
 .welcome-container p {
@@ -34,11 +40,19 @@ body {
   padding-bottom: 20px;
 }
 
-/* Login and Register Pages */
-.register-container {
-  text-align: center;
+video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: -1;
+  opacity: 0.9;
+  filter: brightness(100%);
+  filter: saturate(115%);
+
 }
 
+/* Login and Register Pages */
 .register-input {
   margin: 20px 0px;
 }
@@ -47,8 +61,28 @@ body {
   margin-right: 10px;
 }
 
+.register-button, .login-button {
+  width: 100% !important;
+}
+
+.register-container {
+  text-align: center;
+  margin: 0 auto;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
 .login-container {
   text-align: center;
+  margin: 0 auto;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .login-input {
@@ -58,6 +92,13 @@ body {
 .login-input label {
   margin-right: 10px;
 }
+
+#login-form, #register-form {
+    box-shadow: 1px 3px 6px grey;
+    width: 40%;
+}
+
+
 
 /* Navbar */
 .main-nav {
@@ -91,8 +132,9 @@ body {
   border-radius: 5px;
   color: black;
   text-align: center;
-  padding: 2rem;
+  padding: 10px 60px 80px 60px;
   margin: 0.5rem;
+  box-shadow: 1px 3px 6px grey;
 }
 
 .row {
@@ -101,10 +143,12 @@ body {
 
 #meals-container {
   text-align: center;
-  padding-top: 30px;
+  padding-top: 40px;
 }
+
 
 /* New recipe page */
 #new-recipe-container h1 {
  text-align: center;
 }
+

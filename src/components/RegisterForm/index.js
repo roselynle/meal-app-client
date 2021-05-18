@@ -45,8 +45,8 @@ function login(data){
 }
 
         return (
-            <div id="register-form">
-                <form onSubmit={handleRegister}>
+
+                <form onSubmit={handleRegister} id="register-form">
                     <div className="register-input">
                         <label htmlFor="username">Username:</label>
                         <input type="text" name="username" onChange={handleUsername} />
@@ -56,7 +56,7 @@ function login(data){
                         <input type="password" name="password" onChange={handlePassword}/>
                     </div>
                     <div className="register-input">
-                        <label htmlFor="email">email:</label>
+                        <label htmlFor="email">Email:</label>
                         <input type="text" name="email" onChange={handleEmail}/>
                     </div>
                     {/* <div className="register-input">
@@ -67,7 +67,6 @@ function login(data){
                     <input type="submit" value="Register"/>
                 </div>
                 </form>
-            </div>
         )
 }
 export default RegisterForm;
