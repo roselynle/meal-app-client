@@ -11,10 +11,10 @@ const NavBar = () => {
     return (
         <nav className="main-nav" role="navigation">
             <NavLink exact to="/meals" activeClassName="current">
-                Get Organised!
+                Plan It!
             </NavLink>
             <NavLink exact to="/recipes" activeClassName="current">
-                Get Inspired!
+                Prep It!
             </NavLink>
             <NavLink exact to="/" activeClassName="current" onClick={handleLogout}>
                 Logout
