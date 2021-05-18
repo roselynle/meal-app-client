@@ -22,7 +22,7 @@ const RecipeCards = (props) => {
 
     return (
         <div className="recipe-card">
-            <img src={props.recipe.img_url} className="card-img-top" alt="Recipe Image"></img>
+            <img src={props.recipe.img_url} className="card-img-top" alt="Recipe Image"/>
             <div className="recipe-card-body">
                 <h3 className="recipe-card-title">{props.recipe.recipe_name}</h3>
                 <p>{props.recipe.recipe_description}</p>

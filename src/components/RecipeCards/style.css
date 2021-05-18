@@ -1,4 +1,10 @@
 .recipe-card{
     border: black 3px solid;
     margin: 10px;
+    max-width: 200px;
+    padding: 20px;
+}
+
+.recipe-card img{
+ max-width: 100%;
 }
