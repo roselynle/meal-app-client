@@ -1,5 +1,6 @@
 import React from "react";
 import { BackgroundVideo } from "../../components";
+import { NavLink } from "react-router-dom";
 import "../../App.css";
 
 const Home = () => {
@@ -9,15 +10,16 @@ const Home = () => {
         <div className="welcome-container">
             <h1>PlanEat</h1>
             <p>Plan It, Prep It, Eat It!</p>
-            <a href="http://0.0.0.0:8080/login">
+            <NavLink to="/login">
             <input type="button" value="Login" />
-            </a>
-            <a href="http://0.0.0.0:8080/register">
+            </NavLink>
+            <NavLink to="/register" >
             <input type="button" value="Register" />
-            </a>
+            </NavLink>
             </div>
         </>
     );
 };
 
 export default Home;
+
