@@ -50,6 +50,7 @@ async function handleSubmit(e){
 }
 
 function login(data){
+    // localStorage.setItem('username', data.username);
     history.push("/meals")
 }
 
