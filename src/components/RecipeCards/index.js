@@ -40,7 +40,7 @@ const RecipeCards = (props) => {
                  <button onClick={() => handleclick(props.recipe.id)}>
                     See recipe here!
                 </button> 
-                <SaveRecipeButton/>
+                <SaveRecipeButton id={props.recipe.id}/>
                 
    
    

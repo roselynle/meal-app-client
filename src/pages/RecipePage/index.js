@@ -8,7 +8,6 @@ import { fetchRecipeDetails } from "../../actions"
 
 const RecipePage = () => {
 
-
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchRecipeDetails(id))
@@ -25,19 +24,12 @@ const RecipePage = () => {
     const diet_reqs = recipe.diet_req
 
 
-
-
-
-
 if (error){
     return(<h1>Oops... this recipe does not exist</h1>)
 }
 else {
 
     return(
-
-
-
         <> 
         <NavBar/>
         <h1>{recipe.recipe_name} </h1>
@@ -45,12 +37,8 @@ else {
         <ul> {ingredients && ingredients.map(item => <li>{item.amount}{item.measure}{item.ingredient}</li>)}</ul>
         <p>{recipe.instructions} </p> 
         <ul> { diet_reqs && diet_reqs.map(item => <li>{item}</li>)}</ul>
-        <SaveRecipeButton/>
+        <SaveRecipeButton id={id}/>
         </>
-
-    
-       
-
     
     )
     }
