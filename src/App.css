@@ -40,6 +40,7 @@ body {
   padding-bottom: 20px;
 }
 
+
 video {
   object-fit: cover;
   width: 100%;
@@ -65,7 +66,7 @@ video {
   width: 100% !important;
 }
 
-.register-container {
+.register-container, .login-container  {
   text-align: center;
   margin: 0 auto;
   height: 100vh;
@@ -75,14 +76,8 @@ video {
   flex-direction: column;
 }
 
-.login-container {
-  text-align: center;
-  margin: 0 auto;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.login-container h1, .register-container h1 {
+  padding-bottom: 20px;
 }
 
 .login-input {
@@ -96,9 +91,8 @@ video {
 #login-form, #register-form {
     box-shadow: 1px 3px 6px grey;
     width: 40%;
+    margin-bottom: 30px;
 }
-
-
 
 /* Navbar */
 .main-nav {
@@ -152,3 +146,8 @@ video {
  text-align: center;
 }
 
+@media screen and (max-width: 500px) {
+  #login-form, #register-form, form {
+    width: 70%;
+}
+}
