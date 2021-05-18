@@ -3,6 +3,7 @@
     margin: 10px;
     max-width: 200px;
     padding: 20px;
+    border-radius: 10px;
 }
 
 .recipe-card img{
@@ -13,7 +14,7 @@ ul{
     list-style: none;
 }
 
-li{
+.recipe-card li{
     background-color: blanchedalmond;
     display:inline;
     margin-right: 10px;
