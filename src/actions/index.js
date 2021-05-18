@@ -56,6 +56,7 @@ export const fetchRecipeDetails = (id) => {
         ingredients: data.ingredients,
         diet_req: data.diet_req,
         instructions: data.instructions,
+        image_url:data.image_url
     //     correct_answer: element.correct_answer,
     //     answers: [...element.incorrect_answers, element.correct_answer],
       };

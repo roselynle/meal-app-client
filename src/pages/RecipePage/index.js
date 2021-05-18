@@ -34,6 +34,7 @@ else {
         <NavBar/>
         <h1>{recipe.recipe_name} </h1>
         <h3>{recipe.recipe_description} </h3> 
+        <img src={recipe.image_url}/>
         <ul> {ingredients && ingredients.map(item => <li>{item.amount}{item.measure}{item.ingredient}</li>)}</ul>
         <p>{recipe.instructions} </p> 
         <ul> { diet_reqs && diet_reqs.map(item => <li>{item}</li>)}</ul>
