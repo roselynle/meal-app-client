@@ -13,7 +13,7 @@ body {
     font-family: 'Poppins', sans-serif;
 }
 
-/* Website Landing Page */
+/* Home Page */
 .welcome-container {
   color: white;
   width: 35%;
@@ -36,9 +36,10 @@ body {
 }
 
 .welcome-container p {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   padding-bottom: 20px;
 }
+
 
 video {
   object-fit: cover;
@@ -48,8 +49,15 @@ video {
   z-index: -1;
   opacity: 0.9;
   filter: brightness(100%);
-  filter: saturate(115%);
+  filter: saturate(120%);
+    filter: contrast(105%);
+}
 
+.logo-container {
+    display: flex;
+  align-items: baseline;
+  text-align: center;
+  padding-left: 6%;
 }
 
 /* Login and Register Pages */
@@ -65,7 +73,7 @@ video {
   width: 100% !important;
 }
 
-.register-container {
+.register-container, .login-container  {
   text-align: center;
   margin: 0 auto;
   height: 100vh;
@@ -75,14 +83,8 @@ video {
   flex-direction: column;
 }
 
-.login-container {
-  text-align: center;
-  margin: 0 auto;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  flex-direction: column;
+.login-container h1, .register-container h1 {
+  padding-bottom: 20px;
 }
 
 .login-input {
@@ -96,9 +98,8 @@ video {
 #login-form, #register-form {
     box-shadow: 1px 3px 6px grey;
     width: 40%;
+    margin-bottom: 30px;
 }
-
-
 
 /* Navbar */
 .main-nav {
@@ -148,7 +149,20 @@ video {
 
 
 /* New recipe page */
-#new-recipe-container h1 {
+#new-recipe-container h2 {
  text-align: center;
+ padding-top: 40px;
+ padding-bottom: 20px;
 }
 
+#new-recipe-container {
+   padding-bottom: 50px;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 500px) {
+  #login-form, #register-form, form {
+    width: 70%;
+}
+}
