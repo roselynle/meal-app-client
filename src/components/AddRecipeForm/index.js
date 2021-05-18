@@ -184,6 +184,7 @@ function AddRecipeForm() {
 
             )})}
         </fieldset> 
+        <input type="submit" value="Add Recipe"/>
 
     </form>
   );
