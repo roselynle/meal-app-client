@@ -16,8 +16,9 @@ const RecipeCards = (props) => {
     const  recipes  = useSelector(state => state.recipes)
     const loading = useSelector(state => state.loading)
 
-    console.log(props.recipe.img_url)
+    console.log(props.recipe.id)
 
+ 
     const url = `recipes/${props.recipe.id}`
 
     return (
@@ -26,6 +27,8 @@ const RecipeCards = (props) => {
             <div className="recipe-card-body">
                 <h3 className="recipe-card-title">{props.recipe.recipe_name}</h3>
                 <p>{props.recipe.recipe_description}</p>
+                <ul> { props.recipe.diet_req && props.recipe.diet_req.map(item => <li>{item}</li>)}</ul>
+
                 {/* <Redirect to={`recipes/${props.recipe.id}`}> */}
                 {/* <a
                     href={`http://0.0.0.0:8080/recipes/${props.recipe.id}`} 

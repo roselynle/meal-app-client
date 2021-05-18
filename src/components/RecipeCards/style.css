@@ -8,3 +8,15 @@
 .recipe-card img{
  max-width: 100%;
 }
+
+ul{
+    list-style: none;
+}
+
+li{
+    background-color: blanchedalmond;
+    display:inline;
+    margin-right: 10px;
+    border-radius: 10px;
+    padding: 6px;
+}
