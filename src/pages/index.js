@@ -5,3 +5,5 @@ export { default as Meals } from './Meals';
 export { default as Recipes } from './Recipes';
 export { default as NotFound } from './NotFound';
 export { default as AddRecipe } from './AddRecipe';
+export { default as RecipePage } from './RecipePage';
+

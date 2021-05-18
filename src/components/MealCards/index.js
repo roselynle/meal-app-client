@@ -1,4 +1,5 @@
 import React from "react";
+import "../../App.css";
 
 const days = [
     { id: 1, day: "1" },
