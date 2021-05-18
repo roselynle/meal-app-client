@@ -1,5 +1,5 @@
 import React from 'react'
-import "./style.css";
+import "../../App.css";
 import video from "../../../public/videos/video.mp4";
 
 function BackgroundVideo() {

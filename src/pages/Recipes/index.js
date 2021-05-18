@@ -24,7 +24,7 @@ const Recipes = () => {
     return (
         <>
         <NavBar/>
-            <h1>Recipes</h1>
+            <h2>Recipes</h2>
       
         {
             loading ?

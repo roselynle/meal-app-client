@@ -15,7 +15,7 @@ const MealCards = () => {
     return days.map((d) => (
         <div key={d.id} className="meal-card">
             <div className="meal-card-body">
-                <h3 className="meal-card-title">Day {d.day}</h3>
+                <h4 className="meal-card-title">Day {d.day}</h4>
                 <p>Meal</p>
             </div>
         </div>
