@@ -18,14 +18,43 @@ const LoginForm = () => {
     const handlePassword = (e) => {
         setPassword(e.target.value);
     };
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        dispatch(loginUser(username, password));
-        history.push("/meals");
-    };
+
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
+    //     const response = await dispatch(loginUser(username, password))
+    //     if (response) {
+    //    history.push("/meals");
+    // }
+    // };
+
+
+async function handleSubmit(e){
+    e.preventDefault();
+    const loginData = { username, password }
+    console.log(loginData)
+    try {
+        const options = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(loginData)
+        }
+        const r = await fetch(`http://localhost:5000/login`, options)
+        console.log(r)
+        const data = await r.json()
+        console.log(data)
+        if (data.err){ throw Error(data.err); }
+        login(data);
+    } catch (err) {
+        console.warn(`Error: ${err}`);
+    }
+}
+
+function login(data){
+    history.push("/meals")
+}
 
     return (
-            <form id="login-form">
+            <form onSubmit={handleSubmit} id="login-form">
                 <div className="login-input">
                     <label htmlFor="username">Username:</label>
                     <input type="text" name="username" onChange={handleUsername}/>
@@ -35,7 +64,7 @@ const LoginForm = () => {
                     <input type="password" name="password" onChange={handlePassword}/>
                 </div>
                 <div className="login-button">
-                    <button type="submit" onClick={handleSubmit}>Login</button>
+                    <input type="submit" value="Login"/>
                 </div>
             </form>
     );
