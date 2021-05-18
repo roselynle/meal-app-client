@@ -1,0 +1,27 @@
+.recipeInfo{
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    height: 90vh;
+    margin-top: 50px;
+    list-style: none;
+}
+
+.recipeInfo img{
+    max-width: 40%;
+}
+
+.infoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.instructions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+

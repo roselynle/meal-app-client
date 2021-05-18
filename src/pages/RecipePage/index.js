@@ -3,6 +3,7 @@ import { AddtoCartBtn, SaveRecipeButton, NavBar} from '../../components'
 import { useSelector, useDispatch } from 'react-redux'
 import {useParams } from "react-router"
 import { fetchRecipeDetails } from "../../actions"
+import "./style.css"
 
 
 
@@ -32,13 +33,19 @@ else {
     return(
         <> 
         <NavBar/>
+        <div className="recipeInfo">
         <h1>{recipe.recipe_name} </h1>
-        <h3>{recipe.recipe_description} </h3> 
+        <div className="infoContainer">
         <img src={recipe.image_url}/>
+        <div className="instructions">
+        <h3>{recipe.recipe_description} </h3> 
         <ul> {ingredients && ingredients.map(item => <li>{item.amount}{item.measure}{item.ingredient}</li>)}</ul>
         <p>{recipe.instructions} </p> 
         <ul> { diet_reqs && diet_reqs.map(item => <li>{item}</li>)}</ul>
+        </div>
+        </div>
         <SaveRecipeButton id={id}/>
+        </div>
         </>
     
     )
