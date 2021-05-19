@@ -20,7 +20,7 @@ function App() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
         }
-        const r = await fetch(`https://meal-prep-api.herokuapp.com/login`, options)
+        const r = await fetch(`http://localhost:5000/login`, options)
         console.log(r)
         const data = await r.json()
         console.log(data)
