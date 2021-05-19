@@ -7,4 +7,6 @@ export { default as BackgroundVideo } from './BackgroundVideo'
 export { default as NavBar } from './NavBar'  
 export { default as SaveRecipeButton} from './SaveRecipeButton'  
 export { default as PrivateRoute} from './PrivateRoute'  
+export { default as Favourites} from './Favourites'  
+
 

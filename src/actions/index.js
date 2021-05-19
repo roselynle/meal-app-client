@@ -14,8 +14,8 @@ export const fetchRecipes = () => {
         console.log(data)
       let recipeData = data.map((element, i) => ({
         id: element._id,
-        recipe_name: element.title,
-        recipe_description: element.description,
+        title: element.title,
+        description: element.description,
         ingredients: element.ingredients,
         diet_req: element.diet_req,
         instructions: element.instructions,
@@ -51,8 +51,8 @@ export const fetchRecipeDetails = (id) => {
 
       let recipeData = {
         id: data._id,
-        recipe_name: data.title,
-        recipe_description: data.description,
+        title: data.title,
+        description: data.description,
         ingredients: data.ingredients,
         diet_req: data.diet_req,
         instructions: data.instructions,

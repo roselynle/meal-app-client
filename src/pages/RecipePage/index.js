@@ -35,11 +35,11 @@ else {
         <> 
         <NavBar/>
         <div className="recipeInfo">
-        <h1>{recipe.recipe_name} </h1>
+        <h1>{recipe.title} </h1>
         <div className="infoContainer">
         <img src={recipe.image_url}/>
         <div className="instructions">
-        <h3>{recipe.recipe_description} </h3> 
+        <h3>{recipe.description} </h3> 
         <ul> {ingredients && ingredients.map(item => <li>{item.amount}{item.measure}{item.ingredient}</li>)}</ul>
         <p>{recipe.instructions} </p> 
         {/* <ul> { diet_req && diet_req.map(item => <li>{item}</li>)}</ul> */}
