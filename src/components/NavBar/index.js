@@ -16,6 +16,9 @@ const NavBar = () => {
             <NavLink exact to="/recipes" activeClassName="current">
                 Prep It!
             </NavLink>
+            <NavLink exact to="/newrecipe" activeClassName="current">
+                Make It!
+            </NavLink>
             <NavLink exact to="/" activeClassName="current" onClick={handleLogout}>
                 Logout
             </NavLink>

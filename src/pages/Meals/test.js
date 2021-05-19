@@ -5,6 +5,7 @@ import Meals from '.';
 describe('Meals', () => {
     test('it renders a header', () => {
         render(<Meals />, { wrapper: MemoryRouter })
-        expect(screen.getByRole('heading').textContent).toBe('Here are your meals for the week:');
+        expect(screen.getByText('Here are your meals for the week:')).toBeInTheDocument();
+        expect(screen.getByText('Your favourites')).toBeInTheDocument();
     })
 })

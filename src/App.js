@@ -4,11 +4,13 @@ import * as Pages from "./pages";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from 'react-router-dom'
 import { PrivateRoute } from "./components"
+import {apiUrl} from '../config/config.js';
 
 // import './style.css';
 
 function App() {
     const [loggedIn, setLoggedIn] = useState(false);
+    const [error, setError] = useState()
 
     const history = useHistory()
 
@@ -20,17 +22,25 @@ function App() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
         }
+<<<<<<< HEAD
         const r = await fetch(`http://localhost:5000/login`, options)
+=======
+        const r = await fetch(`${apiUrl}/login`, options)
+>>>>>>> staging
         console.log(r)
         const data = await r.json()
         console.log(data)
         if (data.err){ throw Error(data.err); }
+        console.log(data.err)
+        if (data.status === 500) {alert("login unsuccessful")}
         sessionStorage.setItem('username', data[0] )
         sessionStorage.setItem('id', data[1] )
+        setError()
         setLoggedIn(true)
         history.push("/meals")
     } catch (err) {
         console.warn(`Error: ${err}`);
+        setError("Login unsuccessful - please check your credentials");
     }
 }
     
@@ -38,7 +48,7 @@ function App() {
         <>
             <Switch>
                 <Route exact path="/" component={Pages.Home} />
-                <Route path='/login'> <Pages.Login login={login}/></Route>
+                <Route path='/login'> <Pages.Login error={error} login={login}/></Route>
                 <Route path='/register' component={Pages.Register}/>
                 <PrivateRoute path="/meals" loggedIn={loggedIn} component={Pages.Meals} />
                 <PrivateRoute exact path="/recipes" loggedIn={loggedIn} component={Pages.Recipes} />
