@@ -11,6 +11,7 @@ function App() {
     const [loggedIn, setLoggedIn] = useState(false);
     const [error, setError] = useState()
 
+    const history = useHistory()
 
     const login = async(username, password) => {
     const userData = {username: username, password: password}
