@@ -35,6 +35,7 @@ const url = `https://meal-prep-api.herokuapp.com/user/${user_id}/favourites`
 }, [])
 
 
+console.log(favData)
 
 
 
