@@ -192,7 +192,7 @@ video {
 }
 .welcome-container {
   position: flex;
-  transform: translate(-10%, -50%);
+  transform: translate(-5%, -50%);
 }
 
 .welcome-container h1 {
@@ -206,4 +206,5 @@ video {
 .logo-container img {
   width: 50px;
 }
+
 }
