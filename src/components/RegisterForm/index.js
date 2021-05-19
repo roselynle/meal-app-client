@@ -6,6 +6,7 @@ const RegisterForm = () =>  {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("")
+    const [error, setError] = useState()
 
     const history = useHistory()
 
@@ -21,6 +22,8 @@ const RegisterForm = () =>  {
         setEmail(e.target.value);
     };
 
+
+
     const handleRegister = async (e) => {
         e.preventDefault();
         try {
@@ -33,10 +36,13 @@ const RegisterForm = () =>  {
             const r = await fetch(`https://meal-prep-api.herokuapp.com/register`, options)
             const data = await r.json()
             if (data.err){ throw Error(data.err) }
+            if (data.status === 500) {alert("registration unsuccessful")}
+            setError();
             login(userData);
             history.push('/meals')
         } catch (err) {
             console.warn(err);
+            setError("Registration unsuccessful - username already exists");
         }
     }
 
@@ -65,6 +71,9 @@ function login(data){
                     </div> */}                  
                     <div className="register-button">
                     <input type="submit" value="Register"/>
+                    <div>
+                    { error ? <p>{error}</p> : ""}
+                    </div>
                 </div>
                 </form>
         )
