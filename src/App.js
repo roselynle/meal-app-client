@@ -25,7 +25,8 @@ function App() {
         const data = await r.json()
         console.log(data)
         if (data.err){ throw Error(data.err); }
-        sessionStorage.setItem('username', data )
+        sessionStorage.setItem('username', data[0] )
+        sessionStorage.setItem('id', data[1] )
         setLoggedIn(true)
         history.push("/meals")
     } catch (err) {
