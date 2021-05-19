@@ -2,6 +2,7 @@
 import React, {useState} from "react";
 import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 import ReactDOM from "react-dom";
+import {useHistory} from "react-router-dom"
 import './style.css'
 import { storage } from "../../firebase"
 
@@ -10,6 +11,8 @@ import { storage } from "../../firebase"
 
 
 function AddRecipeForm() {
+
+  const history = useHistory()
   const { register, control, handleSubmit, reset, watch } = useForm({
 
   });
@@ -72,6 +75,8 @@ function AddRecipeForm() {
   .then(response => response.json()) 
   .then(json => console.log(json))
   .catch(err => console.error(err));
+
+  history.push('/recipes')
 
   }
 
