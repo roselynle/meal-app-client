@@ -16,16 +16,19 @@ const RecipeCards = (props) => {
     const  recipes  = useSelector(state => state.recipes)
     const loading = useSelector(state => state.loading)
 
-    console.log(typeof(props.recipe.id))
+    console.log(props.recipe.id)
 
+ 
     const url = `recipes/${props.recipe.id}`
 
     return (
         <div className="recipe-card">
-            <img src={"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEeQdNORa8Fpm-w-iSPYlURM87gv_DH-MyjQ&usqp=CAU"} className="card-img-top" alt="Recipe Image"></img>
+            <img src={props.recipe.img_url} className="card-img-top" alt="Recipe Image"/>
             <div className="recipe-card-body">
                 <h3 className="recipe-card-title">{props.recipe.recipe_name}</h3>
                 <p>{props.recipe.recipe_description}</p>
+                <ul> { props.recipe.diet_req && props.recipe.diet_req.map(item => <li>{item}</li>)}</ul>
+
                 {/* <Redirect to={`recipes/${props.recipe.id}`}> */}
                 {/* <a
                     href={`http://0.0.0.0:8080/recipes/${props.recipe.id}`} 

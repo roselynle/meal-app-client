@@ -1,8 +1,10 @@
 
-import React from "react";
+import React, {useState} from "react";
 import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 import ReactDOM from "react-dom";
 import './style.css'
+import { storage } from "../../firebase"
+
 
 
 
@@ -17,10 +19,51 @@ function AddRecipeForm() {
       name: "ingredients"
     }
   );
+  const [image, setImage] = useState(null);
+  const [url, setUrl] = useState("");
+  const [progress, setProgress] = useState(0);
+  const [imageUploaded, setImageUploaded] = useState(false)
+
+  const handleChange = e => {
+      setImage(e.target.files[0]);
+
+
+  };
+
+
+  const handleUpload= (e) => {
+    e.preventDefault()
+    setImageUploaded(true)
+    const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    uploadTask.on(
+      "state_changed",
+      snapshot => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(progress);
+      },
+      error => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(image.name)
+          .getDownloadURL()
+          .then(url => {
+            setUrl(url);
+
+          });
+      }
+    );
+  };
 
   const onSubmit = (data) => {
+    data.image_url = url
   
-  console.log(data);
+    
+
   fetch('http://127.0.0.1:5000/recipes/new/', {
   method: "POST",
   body: JSON.stringify(data),
@@ -66,8 +109,11 @@ function AddRecipeForm() {
 
       <div className="form-group">
         <label htmlFor="imageUpload">Upload an image:</label>
-        <input type="file" {...register("image-upload")} />
+        <input type="file" id="imageUpload" onChange={handleChange} required />
+        <button onClick={handleUpload}>Click to Upload</button>
+        {imageUploaded? <img src={url}/>:<p>Please choose an image and click upload</p>}
       </div>
+
 
       <div  className="form-group">
         <label htmlFor="">Add your ingredients:</label>
@@ -134,9 +180,9 @@ function AddRecipeForm() {
               </div>
 
             )})}
-        </fieldset>
+        </fieldset> 
+        <input type="submit" value="Add Recipe"/>
 
-      <input type="submit" />
     </form>
   );
 }
