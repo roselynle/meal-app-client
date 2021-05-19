@@ -12,7 +12,7 @@ const Meals = () => {
             </div>
             </div>
 
-            <section>
+            <section id="favourites">
                 <h2> Your favourites</h2>
                 <p> Drag and drop into you meal plan</p>
             </section>

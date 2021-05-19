@@ -88,9 +88,8 @@ const MealCards = () => {
     return (
         <>
         {renderDays()}
-        
-        <button onClick={sendPlan}>Plan my Week</button>
-        <button onClick={sendIngredients}>What do I need?</button>
+        <button onClick={sendPlan}>Plan my Week <i class="fas fa-pen"></i></button>
+        <button onClick={sendIngredients}>What do I need? <i class="fas fa-shopping-cart"></i></button>
         </>
     )
 };
