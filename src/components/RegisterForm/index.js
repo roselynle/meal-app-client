@@ -71,11 +71,12 @@ function login(data){
                     </div> */}                  
                     <div className="register-button">
                     <input type="submit" value="Register"/>
-                    <div>
-                    { error ? <p>{error}</p> : ""}
-                    </div>
                 </div>
+                <div>
+                                    { error ? <p>{error}</p> : ""}
+                    </div>
                 </form>
+
         )
 }
 export default RegisterForm;

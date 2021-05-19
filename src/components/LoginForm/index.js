@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../App.css";
 import { useHistory } from 'react-router-dom'
 
-const LoginForm = ({login}) => {
+const LoginForm = ({login, error}) => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
