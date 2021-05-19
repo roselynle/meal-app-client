@@ -16,14 +16,13 @@ body {
 /* Home Page */
 .welcome-container {
   color: white;
-  width: 35%;
   height: 31%;
   text-align: center;
   margin: 0 auto;
   display: block;
   position: absolute;
   top: 50%;
-  left: 19%;
+  left: 21%;
   transform: translate(-50%, -50%);
 }
 
@@ -40,6 +39,10 @@ body {
   padding-bottom: 20px;
 }
 
+.welcome-container input {
+  margin: 10px;
+  font-size: 1rem;
+}
 
 video {
   object-fit: cover;
@@ -48,16 +51,20 @@ video {
   position: fixed;
   z-index: -1;
   opacity: 0.9;
-  filter: brightness(100%);
-  filter: saturate(120%);
-    filter: contrast(105%);
+  filter: brightness(110%);
+  filter: saturate(125%);
+  filter: contrast(110%);
 }
 
 .logo-container {
     display: flex;
   align-items: baseline;
   text-align: center;
-  padding-left: 6%;
+}
+
+.logo-container img {
+  margin-left: 3%;
+  width: 75px;
 }
 
 /* Login and Register Pages */
@@ -140,13 +147,31 @@ video {
 
 .row {
   justify-content: center;
+  padding-top: 30px;
 }
 
 #meals-container {
   text-align: center;
   padding-top: 40px;
+  position: relative;
 }
 
+#mealChoiceForm select {
+  width: 150px;
+}
+
+.meal-page-button {
+  display: block;
+  height: 100px;
+  position: absolute;
+  margin-bottom: 100px;
+  margin-top:500px;
+}
+
+#favourites {
+  text-align: center;
+  margin-top: 75px;
+}
 
 /* New recipe page */
 #new-recipe-container h2 {
@@ -161,8 +186,25 @@ video {
 
 /* Media queries */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 540px) {
   #login-form, #register-form, form {
-    width: 70%;
+    width: 75%;
 }
+.welcome-container {
+  position: flex;
+  transform: translate(-5%, -50%);
+}
+
+.welcome-container h1 {
+  font-size: 3.8rem;
+}
+
+.welcome-container p {
+  font-size: 1rem;
+}
+
+.logo-container img {
+  width: 50px;
+}
+
 }
