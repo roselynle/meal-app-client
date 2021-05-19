@@ -6,7 +6,7 @@ const Meals = () => {
         <>
             <NavBar />
             <div id="meals-container">
-            <h1>Here are your meals for the week:</h1>
+            <h2>Here are your meals for the week:</h2>
             <div className="row">
             <MealCards />
             </div>

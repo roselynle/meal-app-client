@@ -1,6 +1,6 @@
 import React from 'react'
-import "./style.css";
-// import video from "../../../public/videos/video.mp4";
+import "../../App.css";
+import video from "../../../public/videos/video.mp4";
 
 function BackgroundVideo() {
   return (

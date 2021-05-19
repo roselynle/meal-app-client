@@ -6,7 +6,7 @@ const AddRecipe = () => {
     return (
         <>
         <div id="new-recipe-container">
-            <h1>Add a new recipe!</h1>
+            <h2>Add a new recipe!</h2>
             <AddRecipeForm/>
             </div>
         </>
