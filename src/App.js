@@ -3,11 +3,12 @@ import { Switch, Route } from "react-router-dom";
 import * as Pages from "./pages";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from 'react-router-dom'
+import { PrivateRoute } from "./components"
 
 // import './style.css';
 
 function App() {
-    const [loggedIn, setLoggedIn] = useState("false");
+    const [loggedIn, setLoggedIn] = useState(false);
 
     const history = useHistory()
 
@@ -38,10 +39,10 @@ function App() {
                 <Route exact path="/" component={Pages.Home} />
                 <Route path='/login'> <Pages.Login login={login}/></Route>
                 <Route path='/register' component={Pages.Register}/>
-                <Route path="/meals" component={Pages.Meals} />
-                <Route exact path="/recipes" component={Pages.Recipes} />
-                <Route path="/recipes/:id" component={Pages.RecipePage}/>
-                <Route path="/newrecipe" component={Pages.AddRecipe}/>
+                <PrivateRoute path="/meals" loggedIn={loggedIn} component={Pages.Meals} />
+                <PrivateRoute exact path="/recipes" loggedIn={loggedIn} component={Pages.Recipes} />
+                <PrivateRoute path="/recipes/:id" loggedIn={loggedIn} component={Pages.RecipePage}/>
+                <PrivateRoute path="/newrecipe" loggedIn={loggedIn} component={Pages.AddRecipe}/>
                 <Route component={Pages.NotFound} />
             </Switch>
             

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, isLoggedIn, ...rest }) => (
+const PrivateRoute = ({ component: Component, loggedIn, ...rest }) => (
     <Route render={() => (
-        !!isLoggedIn
+        !!loggedIn
             ? <Component {...rest} />
             : <Redirect to='/login' />
     )} />

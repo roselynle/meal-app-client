@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "../../App.css";
 import { useHistory } from 'react-router-dom'
-import { loginUser } from "../../actions"
 
 const LoginForm = ({login}) => {
     const [username, setUsername] = useState("");
@@ -53,12 +52,9 @@ const LoginForm = ({login}) => {
 //     history.push("/meals")
 // }
 
-console.log(login)
-
-loginUser = e => {
+const loginUser = e => {
         e.preventDefault();
         login(username, password)
-        console.log("hello")
     }
 
     return (
