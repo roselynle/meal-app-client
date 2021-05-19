@@ -1,22 +1,9 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import "../../App.css";
-<<<<<<< HEAD
-import { Droppable } from "react-beautiful-dnd";
-
-const days = [
-    { id: 1, day: "1" },
-    { id: 2, day: "2" },
-    { id: 3, day: "3" },
-    { id: 4, day: "4" },
-    { id: 5, day: "5" },
-    { id: 6, day: "6" },
-    { id: 7, day: "7" },
-];
-=======
 import { MealChoice } from '..'
 import axios from 'axios'
-import {apiUrl} from '../../../config/config.js';
->>>>>>> staging
+import { apiUrl } from '../../../config/config.js';
+import { Droppable } from "react-beautiful-dnd"
 
 const MealCards = () => {
     const [favData, setFavData] = useState([])
@@ -52,7 +39,7 @@ const MealCards = () => {
         { id: 6, day: "6" },
         { id: 7, day: "7" },
     ];
-    
+
     const chooseMeal = (choice, day) => {
         setNewMealPlan(prev => ({
             ...prev,
@@ -88,23 +75,29 @@ const MealCards = () => {
         }
     }
 
-    const renderDays = () => {return days.map((d) => (
-        <div key={d.id} className="meal-card">
-            <div className="meal-card-body">
-                <h4 className="meal-card-title">Day {d.day}</h4>
-                <p>Meal</p>
-                <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={d.day}/>
-            </div>
-        </div>
-    ));
+    const renderDays = () => {
+        return days.map((d) => (
+            <Droppable droppableId={`day${d.id}`}>
+                {(provided) => (
+                    <div key={d.id} className="meal-card">
+                        <div className="meal-card-body">
+                            <h4 className="meal-card-title">Day {d.day}</h4>
+                            <p>Meal</p>
+                            <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={d.day} />
+                        </div>
+                        {provided.placeholder}
+                    </div>
+                )}
+            </Droppable>
+        ));
     }
 
     return (
         <>
-        {renderDays()}
-        
-        <button onClick={sendPlan}>Plan my Week</button>
-        <button onClick={sendIngredients}>What do I need?</button>
+            {renderDays()}
+
+            <button onClick={sendPlan}>Plan my Week</button>
+            <button onClick={sendIngredients}>What do I need?</button>
         </>
     )
 };

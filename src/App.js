@@ -22,11 +22,7 @@ function App() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
         }
-<<<<<<< HEAD
-        const r = await fetch(`http://localhost:5000/login`, options)
-=======
         const r = await fetch(`${apiUrl}/login`, options)
->>>>>>> staging
         console.log(r)
         const data = await r.json()
         console.log(data)
