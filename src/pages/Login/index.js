@@ -1,16 +1,18 @@
 import React from "react";
 import { LoginForm } from "../../components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
+import "../../App.css";
 
-const Login = () => {
+const Login = ({login, error}) => {
     return (
         <>
         <div className="login-container">
             <h1>Login</h1>
-            <LoginForm/>
-            <NavLink to="/register" >
-            <a>Don't have an account yet?</a>
-            </NavLink>
+            <LoginForm login={login}/>
+            { error ? <p>{error}</p> : ""}
+            <Link to="/register" >
+            Don't have an account yet?
+            </Link>
             </div>
         </>
     );

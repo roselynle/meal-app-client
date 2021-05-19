@@ -18,13 +18,13 @@ const Recipes = () => {
     }, [])
 
     console.log(recipes)
-    const renderRecipes = recipes.map(recipe => <RecipeCards key={recipe.id} recipe={recipe} />)
+    const renderRecipes = recipes.map(recipe => <RecipeCards key={recipe.id} showFavBtn={true} recipe={recipe} />)
 
 
     return (
         <>
         <NavBar/>
-            <h1>Recipes</h1>
+            <h2>Recipes</h2>
       
         {
             loading ?
