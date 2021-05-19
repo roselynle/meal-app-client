@@ -49,7 +49,7 @@ const RegisterForm = () =>  {
             history.push('/meals')
         } catch (err) {
             console.warn(err);
-            setError("Registration unsuccessful - username already exists");
+            setError("Registration unsuccessful - please try another username");
         }
     }
 
@@ -58,7 +58,7 @@ function login(data){
 }
 
         return (
-
+<>
                 <form onSubmit={handleRegister} id="register-form">
                     <div className="register-input">
                         <label htmlFor="username">Username:</label>
@@ -79,11 +79,12 @@ function login(data){
                     <div className="register-button">
                     <input role="register" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Register"/>
                 </div>
+                </form>
                 <div>
                                     { error ? <p>{error}</p> : ""}
                                     {formIncomplete() ? <p>Passwords do not match</p>  : ""}
                     </div>
-                </form>
+</>
 
         )
 }
