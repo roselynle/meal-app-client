@@ -98,23 +98,30 @@ function AddRecipeForm() {
 
   return (
     <form aria-label="Add a recipe" onSubmit={handleSubmit(onSubmit)}>
+     
       <div className="form-group">
         <label htmlFor="recipeName">Recipe Name:</label>
-        <input type="text" id="recipeName" {...register("recipeName")} />
+        <input type="text" id="recipeName" {...register("recipeName")} required />
       </div>
 
       <div className="form-group">
         <label htmlFor="recipeDescription">Description:</label>
-        <input type="text" id="recipeDescription" {...register("recipeDescription")} />
+        <input type="text" id="recipeDescription" required placeholder="Tell us a little bit about your recipe..." {...register("recipeDescription")} />
       </div>
 
       <div className="form-group">
         <label htmlFor="imageUpload">Upload an image:</label>
+
+        <div id="image-upload">
         <input type="file" id="imageUpload" onChange={handleChange} required />
-        <button onClick={handleUpload}>Click to Upload</button>
-        {imageUploaded ? <img src={url} /> : <p>Please choose an image and click upload</p>}
+        <button id="uploadbtn" onClick={handleUpload}>Upload</button>
+
+        </div>
+        {imageUploaded ? <img id="uploaded-img" src={url} /> : <p>Please choose an image and click upload</p>}
+
       </div>
 
+    
 
       <div className="form-group">
         <label htmlFor="">Add your ingredients:</label>
@@ -164,26 +171,33 @@ function AddRecipeForm() {
         </section>
       </div>
 
-
       <div className="form-group">
         <label htmlFor="instructions">Instructions:</label>
-        <textarea id="instructions" {...register("instructions")}></textarea>
+        <textarea id="instructions" required {...register("instructions")} rows="4" cols="50" placeholder="1. Chop the onions 
+        2. Slice the carrots"></textarea>
       </div>
 
+    
 
-      <fieldset id="dietary-requirements">
-        <legend>Is your food any of the following?</legend>
+   
+
+        <div className="form-group">
+        <label>Is your recipe:</label>
+        <div id ="dietary-requirements">
         {dietaryRequirements.map((req, index) => {
           return (
             <div className="checkbox" aria-checked="false" key={index}>
-              <label htmlFor={`${req}`}>{`${req}`}</label>
+              <label className="checkboxlabel" htmlFor={`${req}`}>{`${req}`}</label>
               <input type="checkbox" id={`${req}`} {...register(`dietary-req.${index}.${req}`)} />
             </div>
 
           )
         })}
-      </fieldset>
-      <input type="submit" value="Add Recipe" />
+        </div>
+        </div>
+      
+
+      <input id="submit" type="submit" value="Add Recipe" />
 
     </form>
   );
