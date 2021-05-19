@@ -61,14 +61,14 @@ const loginUser = e => {
             <form onSubmit={loginUser} id="login-form">
                 <div className="login-input">
                     <label htmlFor="username">Username:</label>
-                    <input type="text" name="username" onChange={handleUsername}/>
+                    <input role="login-input" type="text" name="username" onChange={handleUsername}/>
                 </div>
                 <div className="login-input">
                     <label htmlFor="password">Password:</label>
-                    <input type="password" name="password" onChange={handlePassword}/>
+                    <input role="login-input" type="password" name="password" onChange={handlePassword}/>
                 </div>
                 <div className="login-button">
-                    <input type="submit" value="Login"/>
+                    <input role="login" type="submit" value="Login"/>
                 </div>
             </form>
     );

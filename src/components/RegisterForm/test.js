@@ -7,10 +7,13 @@ describe('Register Form', () => {
         render(<RegisterForm />, { wrapper: MemoryRouter });
     });
 
-    describe('Register Button', () => {
         test('it renders a register button', () => {
-            const button = screen.getByRole('button')
-            expect(button.textContent).toContain('Register')
+            const register = screen.getByRole('register')
+            expect(register).toBeInTheDocument()
+        })
+
+        test('it renders an input for username, password and email', () => {
+            const input = screen.getAllByRole('register-input')
+            expect(input).toHaveLength(3)
         })
     })
-})

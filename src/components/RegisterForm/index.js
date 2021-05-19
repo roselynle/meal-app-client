@@ -56,22 +56,22 @@ function login(data){
                 <form onSubmit={handleRegister} id="register-form">
                     <div className="register-input">
                         <label htmlFor="username">Username:</label>
-                        <input type="text" name="username" onChange={handleUsername} />
+                        <input role="register-input" type="text" name="username" onChange={handleUsername} />
                     </div>
                     <div className="register-input">
                         <label htmlFor="password">Password:</label>
-                        <input type="password" name="password" onChange={handlePassword}/>
+                        <input role="register-input" type="password" name="password" onChange={handlePassword}/>
                     </div>
                     <div className="register-input">
                         <label htmlFor="email">Email:</label>
-                        <input type="text" name="email" onChange={handleEmail}/>
+                        <input role="register-input" type="text" name="email" onChange={handleEmail}/>
                     </div>
                     {/* <div className="register-input">
                         <label htmlFor="password">Confirm Password:</label>
                         <input type="password" name="passwordConfirmation" />
                     </div> */}                  
                     <div className="register-button">
-                    <input type="submit" value="Register"/>
+                    <input role="register" type="submit" value="Register"/>
                 </div>
                 <div>
                                     { error ? <p>{error}</p> : ""}
