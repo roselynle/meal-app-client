@@ -1,106 +1,151 @@
 form{
-    background-color:#c7dfda ;
-    width:50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border-radius: 10px;
-    padding:20px;
-  margin: 0 auto;
+  background-color:#c7dfda ;
+  width:50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding:20px;
+margin: 0 auto;
 }
 
 input[type=text], input[type=password], select {
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    height:10%;
-  }
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height:10%;
+}
 
-  input[type=submit] {
+input[type=submit] {
 
-    background-color:#92d1c4;
-    color: black;
-    margin: 8px 0;
+  background-color:#92d1c4;
+  color: black;
+  margin: 8px 0;
 
-    border-radius: 4px;
-    cursor: pointer;
-    width:30%;
-  }
+  border-radius: 4px;
+  cursor: pointer;
+  width:30%;
+}
+
+
+div.form-group{
+  background-color:#92d1c4;
+  width:90%;
+
+  display:flex;
+  flex-direction: column;
+  padding: 10px;
+  border-radius: 4px;
   
-
-  .form-group{
-    background-color:#92d1c4;
-    width: 90%;
-    display:flex;
-    flex-direction: column;
-    padding: 10px;
-    border-radius: 4px;
-    
-  }
+}
 
 
 ul{
-  padding:0
+padding:0
 }
 
 .ingredient{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 10px;
-    
-  }
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  
+}
 
 
-  select{
-    width:100px;
-    padding:0px;
-    height: 40px;
-  }
+select{
+  width:100px;
+  padding:0px;
+  height: 40px;
+}
 
-  #delete-button{
-    border:none;
-    background-color:#92d1c4;
-  }
+#delete-button{
+  border:none;
+  background-color:#92d1c4;
+}
 
-  input{
-    height: 40px;
-    border-radius: 5px;
-    border:none;
-    padding:10px;
-  }
+input{
+  border-radius: 5px;
+  border:none;
+  padding:10px;
+}
 
-  textarea{
-    border:none;
-    border-radius: 5px;
+textarea{
+  border:none;
+  border-radius: 5px;
 
-  }
+}
 
-  #dietary-requirements{
-    background-color: #92d1c4;
-    width: 90%;
-    display: flex;
-    flex-wrap: wrap;
+#dietary-requirements{
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  
 
 
-  }
+}
 
-  .checkbox{
-    margin: 20px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
-  }
+.checkbox{
+  margin: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+}
 
-  .checkbox label{
-    margin-bottom: 0;
-    margin-right:10px;
-    
-  }
+.checkbox label{
+  margin-bottom: 0;
+  margin-right:10px;
+  
+}
+
+label{
+ font-size: 1.1rem;
+ margin-left: 5px;
+}
+
+.checkboxlabel{
+ font-size: 1rem;
+}
+
+
+
+#image-upload{
+ display: flex;
+
+ margin-bottom: 10px;
+ align-items: center;
+}
+#uploaded-img{
+ width:30%;
+ margin: 20px auto;
+ border-radius: 4px;
+ 
+}
+
+button{
+padding: 2px 10px;
+border: 1px solid grey;
+margin-left: 5px;
+}
+
+input#imageUpload{
+
+ margin-bottom: 10;
+}
+
+#submit{
+ border: 1px solid rgb(146, 144, 144);
+}
+
+#submit:hover{
+ background-color: #7db4a9;
+}
