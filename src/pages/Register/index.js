@@ -1,6 +1,6 @@
 import React from "react";
 import { RegisterForm } from "../../components";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Register = () => {
     return (
@@ -8,9 +8,9 @@ const Register = () => {
             <div className="register-container">
                 <h1>Register</h1>
                 <RegisterForm />
-                <NavLink to="/login" >
-                <a>Already have an account?</a>
-            </NavLink>
+                <Link to="/login" >
+                Already have an account?
+            </Link>
             </div>
         </>
     );
