@@ -4,9 +4,13 @@ import {RecipeCards} from '../index'
 
 
 const Favourites = () => {
-
     const user_id = sessionStorage.getItem('id')
     console.log(user_id)
+    // const url = `http://127.0.0.1:5000//user/${user_id}/favourites`
+const url = `https://meal-prep-api.herokuapp.com/user/${user_id}/favourites`
+
+
+   
 
     const [favData, setFavData] = useState([])
 
@@ -16,10 +20,7 @@ const Favourites = () => {
   
             try {
         
-              const { data } = await axios.get(
-                `http://localhost:5000//user/${user_id}/favourites`
-                
-              );
+              const { data } = await axios.get(url)
         
               console.log(data)
              setFavData(data)
@@ -34,6 +35,7 @@ const Favourites = () => {
 }, [])
 
 
+console.log(favData)
 
 
 

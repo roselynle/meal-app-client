@@ -2,18 +2,21 @@
 
 import axios from "axios";
 
+
+
 export const fetchRecipes = () => {
+
+  // const url = 'http://127.0.0.1:5000/recipes/'
+  const url = `https://meal-prep-api.herokuapp.com/recipes`
+  
   return async (dispatch) => {
     try {
 
-      const { data } = await axios.get(
-        `http://127.0.0.1:5000/recipes/`
-
-      );
+      const { data } = await axios.get(url);
 
         console.log(data)
       let recipeData = data.map((element, i) => ({
-        id: element._id,
+        _id: element._id,
         title: element.title,
         description: element.description,
         ingredients: element.ingredients,
@@ -41,16 +44,17 @@ export const fetchRecipes = () => {
 
 export const fetchRecipeDetails = (id) => {
 
+  // const url = `http://127.0.0.1:5000/recipes/${id}`
+  const url = `https://meal-prep-api.herokuapp.com/recipes/${id}`
+  
+
   return async (dispatch) => {
     try {
 
-      const { data } = await axios.get(
-        `http://127.0.0.1:5000/recipes/${id}`
-
-      );
+      const { data } = await axios.get(url);
 
       let recipeData = {
-        id: data._id,
+        _id: data._id,
         title: data.title,
         description: data.description,
         ingredients: data.ingredients,
