@@ -32,8 +32,17 @@ if (error){
 else {
 
     return(
+        <>
+                <NavBar/>
+
+        {
+            loading ?
+                <h2>Loading . . .</h2>
+                : 
+        
+        
+
         <> 
-        <NavBar/>
         <div className="recipeInfo">
         <h1>{recipe.title} </h1>
         <div className="infoContainer">
@@ -48,9 +57,11 @@ else {
         <SaveRecipeButton id={id}/>
         </div>
         </>
-    
+}
+    </>
+        
     )
-    }
+}
 }
 
 export default RecipePage

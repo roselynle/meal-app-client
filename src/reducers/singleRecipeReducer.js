@@ -1,6 +1,7 @@
 const initState = {
     recipe: [],
-    loading: true
+    loading: true,
+    error:false
 
 }
   
