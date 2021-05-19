@@ -55,15 +55,15 @@ function login(data){
                 <form onSubmit={handleRegister} id="register-form">
                     <div className="register-input">
                         <label htmlFor="username">Username:</label>
-                        <input type="text" name="username" onChange={handleUsername} />
+                        <input role="register-input" type="text" name="username" onChange={handleUsername} />
                     </div>
                     <div className="register-input">
                         <label htmlFor="password">Password:</label>
-                        <input type="password" name="password" onChange={handlePassword}/>
+                        <input role="register-input" type="password" name="password" onChange={handlePassword}/>
                     </div>
                     <div className="register-input">
                         <label htmlFor="email">Email:</label>
-                        <input type="text" name="email" onChange={handleEmail}/>
+                        <input role="register-input" type="text" name="email" onChange={handleEmail}/>
                     </div>
                     {/* <div className="register-input">
                         <label htmlFor="password">Confirm Password:</label>
