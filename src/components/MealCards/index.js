@@ -22,7 +22,7 @@ const MealCards = () => {
         }
         try {
             const { data } = await axios.get(
-                `${apiUrl}/user/${user_id}/mealPlan`
+                `${apiUrl}/user/${user_id}/mealplan`
             );
             setMealPlan(data)
         } catch (err) {
@@ -77,18 +77,19 @@ const MealCards = () => {
 
     const renderDays = () => {
         return days.map((d) => (
-            <Droppable droppableId={`day${d.id}`}>
-                {(provided) => (
-                    <div key={d.id} className="meal-card">
-                        <div className="meal-card-body">
-                            <h4 className="meal-card-title">Day {d.day}</h4>
-                            <p>Meal</p>
-                            <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={d.day} />
-                        </div>
-                        {provided.placeholder}
-                    </div>
-                )}
-            </Droppable>
+            <div key={d.id} className="meal-card">
+                <div className="meal-card-body">
+                    <h4 className="meal-card-title">Day {d.day}</h4>
+                    <p>Meal</p>
+                    <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={d.day} />
+                    <Droppable droppableId={`day${d.id}`}>
+                        {(provided) => (
+                            <div {...provided.droppableProps} ref={provided.innerRef}>
+                                {provided.placeholder}</div>
+                        )}
+                    </Droppable>
+                </div>
+            </div>
         ));
     }
 

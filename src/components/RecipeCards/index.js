@@ -46,7 +46,7 @@ const RecipeCards = (props) => {
                  {/* <button onClick={() => handleclick(props.recipe.id)}>
                     See recipe here!
                 </button>  */}
-                {props.showFavBtn ? <SaveRecipeButton id={props.recipe.id}/>: <button>x</button>
+                {props.showFavBtn ? <SaveRecipeButton id={props.recipe._id}/>: <button>x</button>
                 }
                 
    

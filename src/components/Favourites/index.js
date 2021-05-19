@@ -22,10 +22,10 @@ const Favourites = () => {
     }
   }, [])
   console.log(favData)
-  const renderRecipes = favData.map(data => 
+  const renderRecipes = favData.map((data, index) => 
   <Draggable key={data._id} draggableId={data._id} index={index}>
     {(provided) => (
-      <RecipeCards key={data._id} recipe={data} showFavBtn={false} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps} />
+      <div ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}><RecipeCards key={data._id} recipe={data} showFavBtn={false}/></div>
     )}
   </Draggable>)
 
