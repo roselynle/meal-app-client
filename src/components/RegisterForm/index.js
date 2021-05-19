@@ -30,7 +30,7 @@ const RegisterForm = () =>  {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
             }
-            const r = await fetch(`http://localhost:5000/register`, options)
+            const r = await fetch(`https://meal-prep-api.herokuapp.com/register`, options)
             const data = await r.json()
             if (data.err){ throw Error(data.err) }
             login(userData);
