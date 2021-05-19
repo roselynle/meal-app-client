@@ -7,6 +7,7 @@ const RegisterForm = () =>  {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("")
+    const [passwordConfirmation, setPasswordConfirmation] = useState("");
     const [error, setError] = useState()
 
     const history = useHistory()
@@ -23,7 +24,12 @@ const RegisterForm = () =>  {
         setEmail(e.target.value);
     };
 
+    const handlePasswordConfirmation = (e) => {
+        setPasswordConfirmation(e.target.value);
+    };
 
+    const formIncomplete = () =>  password !== passwordConfirmation
+    console.log(formIncomplete)
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -59,22 +65,23 @@ function login(data){
                         <input role="register-input" type="text" name="username" onChange={handleUsername} />
                     </div>
                     <div className="register-input">
-                        <label htmlFor="password">Password:</label>
-                        <input role="register-input" type="password" name="password" onChange={handlePassword}/>
-                    </div>
-                    <div className="register-input">
                         <label htmlFor="email">Email:</label>
                         <input role="register-input" type="text" name="email" onChange={handleEmail}/>
                     </div>
-                    {/* <div className="register-input">
+                    <div className="register-input">
+                        <label htmlFor="password">Password:</label>
+                        <input role="register-input" type="password" name="password" onChange={handlePassword}/>
+                    </div>
+                   <div className="register-input">
                         <label htmlFor="password">Confirm Password:</label>
-                        <input type="password" name="passwordConfirmation" />
-                    </div> */}                  
+                        <input type="password" name="passwordConfirmation" onChange={handlePasswordConfirmation}/>
+                    </div>                 
                     <div className="register-button">
-                    <input role="register" type="submit" value="Register"/>
+                    <input role="register" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Register"/>
                 </div>
                 <div>
                                     { error ? <p>{error}</p> : ""}
+                                    {formIncomplete() ? <p>Passwords do not match</p>  : ""}
                     </div>
                 </form>
 
