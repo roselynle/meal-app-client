@@ -4,6 +4,7 @@ import * as Pages from "./pages";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useHistory } from 'react-router-dom'
 import { PrivateRoute } from "./components"
+import {apiUrl} from '../config/config.js';
 
 // import './style.css';
 
@@ -21,7 +22,7 @@ function App() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(userData)
         }
-        const r = await fetch(`https://meal-prep-api.herokuapp.com/login`, options)
+        const r = await fetch(`${apiUrl}/login`, options)
         console.log(r)
         const data = await r.json()
         console.log(data)
