@@ -1,5 +1,6 @@
 import React from "react";
 import "../../App.css";
+import { Droppable } from "react-beautiful-dnd";
 
 const days = [
     { id: 1, day: "1" },
