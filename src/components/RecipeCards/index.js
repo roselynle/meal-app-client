@@ -25,8 +25,8 @@ const RecipeCards = (props) => {
         <div className="recipe-card">
             <img src={props.recipe.img_url} className="card-img-top" alt="Recipe Image"/>
             <div className="recipe-card-body">
-                <h3 className="recipe-card-title">{props.recipe.recipe_name}</h3>
-                <p>{props.recipe.recipe_description}</p>
+                <h3 className="recipe-card-title">{props.recipe.title}</h3>
+                <p>{props.recipe.description}</p>
                 <ul> { props.recipe.diet_req && props.recipe.diet_req.map(item => <li>{item}</li>)}</ul>
 
                 {/* <Redirect to={`recipes/${props.recipe.id}`}> */}
@@ -43,7 +43,8 @@ const RecipeCards = (props) => {
                  <button onClick={() => handleclick(props.recipe.id)}>
                     See recipe here!
                 </button> 
-                <SaveRecipeButton id={props.recipe.id}/>
+                {props.showFavBtn ? <SaveRecipeButton id={props.recipe.id}/>: <button>x</button>
+                }
                 
    
    

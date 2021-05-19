@@ -1,5 +1,5 @@
 import React from "react";
-import { MealCards, NavBar } from "../../components";
+import { MealCards, NavBar, Favourites } from "../../components";
 
 const Meals = () => {
     return (
@@ -16,6 +16,7 @@ const Meals = () => {
                 <h2> Your favourites</h2>
                 <p> Drag and drop into you meal plan</p>
             </section>
+            <Favourites/>
         </>
     );
 };
