@@ -1,6 +1,7 @@
 import React, { useState }  from 'react';
 import "../../App.css";
 import { useHistory } from 'react-router-dom'
+import {apiUrl} from '../../../config/config.js';
 
 const RegisterForm = () =>  {
     const [username, setUsername] = useState("");
@@ -33,7 +34,7 @@ const RegisterForm = () =>  {
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(userData)
             }
-            const r = await fetch(`https://meal-prep-api.herokuapp.com/register`, options)
+            const r = await fetch(`${apiUrl}/register`, options)
             const data = await r.json()
             if (data.err){ throw Error(data.err) }
             if (data.status === 500) {alert("registration unsuccessful")}

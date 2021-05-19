@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import "../../App.css";
 import { MealChoice } from '..'
 import axios from 'axios'
+import {apiUrl} from '../../../config/config.js';
 
 const MealCards = () => {
     const [favData, setFavData] = useState([])
@@ -12,7 +13,7 @@ const MealCards = () => {
     useEffect(async () => {
         try {
             const { data } = await axios.get(
-                `http://localhost:5000//user/${user_id}/favourites`
+                `${apiUrl}/user/${user_id}/favourites`
             );
             setFavData(data)
         } catch (err) {
@@ -20,7 +21,7 @@ const MealCards = () => {
         }
         try {
             const { data } = await axios.get(
-                `http://localhost:5000//user/${user_id}/mealPlan`
+                `${apiUrl}/user/${user_id}/mealPlan`
             );
             setMealPlan(data)
         } catch (err) {
@@ -54,7 +55,7 @@ const MealCards = () => {
                 body: JSON.stringify(Object.values(newMealPlan))
             }
             const { data } = await axios.patch(
-                `http://localhost:5000//user/${user_id}/mealplan/new`, options
+                `${apiUrl}/user/${user_id}/mealplan/new`, options
             );
             console.log(data)
         } catch (err) {
@@ -65,7 +66,7 @@ const MealCards = () => {
     const sendIngredients = async () => {
         try {
             const { data } = await axios.get(
-                `http://localhost:5000//user/${user_id}/mealplan/ingredients`
+                `${apiUrl}/user/${user_id}/mealplan/ingredients`
             );
             console.log(data)
         } catch (err) {

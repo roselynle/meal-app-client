@@ -1,4 +1,5 @@
 import React from "react";
+import {apiUrl} from '../../../config/config.js';
 
 
 const saveRecipe = (recipe_id) => {
@@ -10,7 +11,7 @@ const saveRecipe = (recipe_id) => {
     console.log(user_id)
 
        // const url = `http://127.0.0.1:5000//user/${user_id}/favourites`
-const url = `https://meal-prep-api.herokuapp.com/user/${user_id}/favourites/new`
+const url = `${apiUrl}/user/${user_id}/favourites/new`
 
 
   
