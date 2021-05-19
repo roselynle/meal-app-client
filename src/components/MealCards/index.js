@@ -5,7 +5,8 @@ import axios from 'axios'
 
 const MealCards = () => {
     const [favData, setFavData] = useState([])
-    const [mealPlan, setMealPlan] = useState({})
+    const [newMealPlan, setNewMealPlan] = useState({})
+    const [MealPlan, setMealPlan] = useState({})
     const user_id = sessionStorage.getItem('id')
 
     useEffect(async () => {
@@ -14,6 +15,14 @@ const MealCards = () => {
                 `http://localhost:5000//user/${user_id}/favourites`
             );
             setFavData(data)
+        } catch (err) {
+            console.warn(err.message)
+        }
+        try {
+            const { data } = await axios.get(
+                `http://localhost:5000//user/${user_id}/mealPlan`
+            );
+            setMealPlan(data)
         } catch (err) {
             console.warn(err.message)
         }
@@ -30,11 +39,11 @@ const MealCards = () => {
     ];
     
     const chooseMeal = (choice, day) => {
-        setMealPlan(prev => ({
+        setNewMealPlan(prev => ({
             ...prev,
             [day]: choice
         }))
-        console.log(mealPlan)
+        console.log(newMealPlan)
     }
 
     const sendPlan = async () => {
@@ -42,7 +51,7 @@ const MealCards = () => {
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(Object.values(mealPlan))
+                body: JSON.stringify(Object.values(newMealPlan))
             }
             const { data } = await axios.patch(
                 `http://localhost:5000//user/${user_id}/mealplan/new`, options
