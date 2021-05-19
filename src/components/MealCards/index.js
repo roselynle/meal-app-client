@@ -37,16 +37,40 @@ const MealCards = () => {
         console.log(mealPlan)
     }
 
-    return days.map((d) => (
+    const sendPlan = async () => {
+        try {
+            const options = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(Object.values(mealPlan))
+            }
+            const { data } = await axios.patch(
+                `http://localhost:5000//user/${user_id}/mealplan/new`, options
+            );
+            console.log(data)
+        } catch (err) {
+            console.warn(err.message)
+        }
+    }
+
+    const renderDays = () => {return days.map((d) => (
         <div key={d.id} className="meal-card">
             <div className="meal-card-body">
                 <h4 className="meal-card-title">Day {d.day}</h4>
                 <p>Meal</p>
                 <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={d.day}/>
-                <button onClick={sendPlan}>Plan my Week</button>
             </div>
         </div>
     ));
+    }
+
+    return (
+        <>
+        {renderDays()}
+        
+        <button onClick={sendPlan}>Plan my Week</button>
+        </>
+    )
 };
 
 export default MealCards;
