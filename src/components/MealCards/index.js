@@ -53,6 +53,17 @@ const MealCards = () => {
         }
     }
 
+    const sendIngredients = async () => {
+        try {
+            const { data } = await axios.get(
+                `http://localhost:5000//user/${user_id}/mealplan/ingredients`
+            );
+            console.log(data)
+        } catch (err) {
+            console.warn(err.message)
+        }
+    }
+
     const renderDays = () => {return days.map((d) => (
         <div key={d.id} className="meal-card">
             <div className="meal-card-body">
@@ -69,6 +80,7 @@ const MealCards = () => {
         {renderDays()}
         
         <button onClick={sendPlan}>Plan my Week</button>
+        <button onClick={sendIngredients}>What do I need?</button>
         </>
     )
 };
