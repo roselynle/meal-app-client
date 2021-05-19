@@ -8,6 +8,9 @@ import "./style.css"
 
 
 const RecipePage = () => {
+    const params = useParams()
+    const id = params.id
+    console.log(id)
 
     const dispatch = useDispatch()
     useEffect(() => {
@@ -18,8 +21,7 @@ const RecipePage = () => {
     const error = useSelector(state => state.singleRecipeReducer.error)
     const loading = useSelector(state => state.singleRecipeReducer.loading)
 
-    const params = useParams()
-    const id = params.id
+  
 
     const ingredients = recipe.ingredients
     const diet_reqs = recipe.diet_req

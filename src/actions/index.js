@@ -16,7 +16,7 @@ export const fetchRecipes = () => {
 
         console.log(data)
       let recipeData = data.map((element, i) => ({
-        id: element._id,
+        _id: element._id,
         title: element.title,
         description: element.description,
         ingredients: element.ingredients,
@@ -54,7 +54,7 @@ export const fetchRecipeDetails = (id) => {
       const { data } = await axios.get(url);
 
       let recipeData = {
-        id: data._id,
+        _id: data._id,
         title: data.title,
         description: data.description,
         ingredients: data.ingredients,
