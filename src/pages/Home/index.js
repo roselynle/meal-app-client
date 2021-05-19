@@ -12,7 +12,7 @@ const Home = () => {
         <div className="welcome-container">
         <div className="logo-container">
             <h1>PlanEat</h1>
-            <img src={image} style={{ width: "75px" }}/>
+            <img src={image}/>
             </div>
             <p>Plan It, Prep It, Eat It!</p>
             <NavLink to="/login">
