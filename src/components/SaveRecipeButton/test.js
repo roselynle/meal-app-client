@@ -4,11 +4,11 @@ import SaveRecipeButton from '.';
 
 describe('Save Recipe Button', () => {
     beforeEach(() => {
-        render(<SaveRecipeButton />, { wrapper: MemoryRouter });
+        renderWithReduxProvider(<SaveRecipeButton />, { wrapper: MemoryRouter });
     });
 
         test('it renders a button', () => {
             const button = screen.getByRole('button')
-            expect(button.textContent).toContain('Save recipe')
+            expect(button.textContent).toContain('save')
         })
 })
