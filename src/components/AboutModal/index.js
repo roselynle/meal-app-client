@@ -16,19 +16,17 @@ const AboutModal = () => {
     return (
         <>
             <div className="about-modal">
-
-                <a className="far fa-question-circle" style={{ fontSize: "2rem", padding: "10px", textDecoration: "none", color: "black"}} onClick={openModal}></a>
-
+                <a className="far fa-question-circle" style={{ fontSize: "2rem", padding: "10px", textDecoration: "none", color: "black" }} onClick={openModal}></a>
             </div>
-
+            
             <Modal isOpen={openAbout} onRequestClose={closeModal}>
                 <div className="modal-body">
                     <button onClick={closeModal}>X</button>
                     <h3>Thanks for signing up for PlanEat!</h3>
                     <p>
                         {" "}
-                        On the 'Prep It' page, you will find a list of recipes 
-                        that have been submitted by the PlanEat community. On each 
+                        On the 'Prep It' page, you will find a list of recipes
+                        that have been submitted by the PlanEat community. On each
                         recipe you will can find out more
                         information such as the ingredients required and how to
                         make it. If a recipe catches your eye then feel free to save it to

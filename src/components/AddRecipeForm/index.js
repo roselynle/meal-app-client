@@ -98,7 +98,7 @@ function AddRecipeForm() {
 
   return (
     <form aria-label="Add a recipe" onSubmit={handleSubmit(onSubmit)}>
-     
+
       <div className="form-group">
         <label htmlFor="recipeName">Recipe Name:</label>
         <input type="text" id="recipeName" {...register("recipeName")} required />
@@ -113,15 +113,15 @@ function AddRecipeForm() {
         <label htmlFor="imageUpload">Upload an image:</label>
 
         <div id="image-upload">
-        <input type="file" id="imageUpload" onChange={handleChange} required />
-        <button id="uploadbtn" onClick={handleUpload}>Upload</button>
+          <input type="file" id="imageUpload" onChange={handleChange} required />
+          <button id="uploadbtn" onClick={handleUpload}>Upload</button>
 
         </div>
         {imageUploaded ? <img id="uploaded-img" src={url} /> : <p>Please choose an image and click upload</p>}
 
       </div>
 
-    
+
 
       <div className="form-group">
         <label htmlFor="">Add your ingredients:</label>
@@ -177,25 +177,25 @@ function AddRecipeForm() {
         2. Slice the carrots"></textarea>
       </div>
 
-    
 
-   
 
-        <div className="form-group">
+
+
+      <div className="form-group">
         <label>Is your recipe:</label>
-        <div id ="dietary-requirements">
-        {dietaryRequirements.map((req, index) => {
-          return (
-            <div className="checkbox" aria-checked="false" key={index}>
-              <label className="checkboxlabel" htmlFor={`${req}`}>{`${req}`}</label>
-              <input type="checkbox" id={`${req}`} {...register(`dietary-req.${index}.${req}`)} />
-            </div>
+        <div id="dietary-requirements">
+          {dietaryRequirements.map((req, index) => {
+            return (
+              <div className="checkbox" aria-checked="false" key={index}>
+                <label className="checkboxlabel" htmlFor={`${req}`}>{`${req}`}</label>
+                <input type="checkbox" id={`${req}`} {...register(`dietary-req.${index}.${req}`)} />
+              </div>
 
-          )
-        })}
+            )
+          })}
         </div>
-        </div>
-      
+      </div>
+
 
       <input id="submit" type="submit" value="Add Recipe" />
 
