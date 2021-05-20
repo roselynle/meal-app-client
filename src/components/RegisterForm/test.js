@@ -16,4 +16,12 @@ describe('Register Form', () => {
             const input = screen.getAllByRole('register-input')
             expect(input).toHaveLength(3)
         })
+
+        test("can delete an added ingredient on click of x button", () => {
+        const register = screen.getByRole('register')
+        userEvent.click(register)
+        let error = screen.getByText("Registration unsuccessful - username already exists")
+        expect(error).toBeInTheDocument
+
     })
+})

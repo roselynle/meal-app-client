@@ -9,7 +9,7 @@ describe('Meal Cards', () => {
 
     describe('meal cards', () => {
         test('it renders 7 meal cards for each day', () => {
-            const div = screen.getByRole('meal-card')
+            const div = screen.getByRole('div')
             expect(div).toHaveLength(7)
         })
     })
