@@ -21,19 +21,19 @@ describe('Register Form', () => {
     test('it updates username input value on change', () => {
         const input = screen.getByRole("register-input", { name: "username" })
         userEvent.type(input, "test")
-        expect(input.textContent).toEqual("test")
+        expect(input.value).toEqual("test")
     })
 
     test('it updates email input value on change', () => {
         const input = screen.getByRole("register-input", { name: "email" })
         userEvent.type(input, "test@test")
-        expect(input.textContent).toEqual("test@test")
+        expect(input.value).toEqual("test@test")
     })
 
     test('it updates password input value on change', () => {
         const input = screen.getByRole("register-input", { name: "password" })
         userEvent.type(input, "test_pass")
-        expect(input.textContent).toEqual("test_pass")
+        expect(input.value).toEqual("test_pass")
     })
 
     /*test("shows error on unsuccesful registration", () => {
