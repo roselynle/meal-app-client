@@ -7,7 +7,8 @@ describe('Recipes', () => {
   });
 
       test('it renders a heading', () => {
-        expect(screen.getByRole('heading').textContent).toBe('Recipes');
+        const recipeTitle = screen.getByText('Recipes')
+        expect(recipeTitle).toBeInTheDocument()
         })
     
       })
