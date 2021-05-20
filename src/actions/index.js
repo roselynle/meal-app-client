@@ -19,7 +19,7 @@ export const fetchRecipes = () => {
         ingredients: element.ingredients,
         diet_req: element.diet_req,
         instructions: element.instructions,
-        img_url: element.image_url
+        image_url: element.image_url
         //     correct_answer: element.correct_answer,
         //     answers: [...element.incorrect_answers, element.correct_answer],
       }));
