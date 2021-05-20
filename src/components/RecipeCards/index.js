@@ -6,8 +6,7 @@ import {SaveRecipeButton} from '..'
 
 const RecipeCards = (props) => {
 
-
-
+    console.log(props.recipe)
     return (
         <div className="recipe-card">
             <img src={props.recipe.image_url} className="card-img-top" alt="Recipe Image"/>

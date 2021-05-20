@@ -151,7 +151,7 @@ function AddRecipeForm() {
                   defaultValue={`${item.ingredient}`} // make sure to set up defaultValue
                   {...register(`ingredients.${index}.ingredient`)}
                 />
-                <button aria-role="delete ingredient" id="delete-button" type="button" onClick={() => remove(index)}>
+                <button role="delete-ingredient" id="delete-button" type="button" onClick={() => remove(index)}>
                   &#10008;
                 </button>
               </li>
@@ -160,7 +160,7 @@ function AddRecipeForm() {
         </ul>
 
         <section>
-          <button aria-label="add ingredient"
+          <button aria-label="add-ingredient"
             type="button"
             onClick={() => {
               append({ amount: "", measure: "", ingredient: "" });

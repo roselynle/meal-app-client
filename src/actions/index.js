@@ -78,6 +78,9 @@ export const fetchFavRecipes = (user_id) => {
 
       let favrecipeData = data.map((element, i) => ({
         _id: element._id,
+        title: element.title,
+        description: element.description,
+        image_url: element.image_url
       }));
 
 
