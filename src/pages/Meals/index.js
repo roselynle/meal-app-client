@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { MealCards, NavBar, Favourites } from "../../components";
+import React from "react";
+import { MealCards, NavBar, Favourites, AboutModal} from "../../components";
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import { apiUrl } from '../../../config/config.js';
 import axios from 'axios'
@@ -69,6 +69,7 @@ const Meals = () => {
     return (
         <>
             <NavBar />
+            <AboutModal/>
             <DragDropContext onDragEnd={onDragEnd}>
                 <div id="meals-container">
                     <h2>Here are your meals for the week:</h2>
@@ -77,7 +78,7 @@ const Meals = () => {
                     </div>
                 </div>
 
-                <button onClick={sendIngredients}>What do I need?</button>
+                <button onClick={sendIngredients}>What do I need? <i class="fas fa-shopping-cart"></i></button>
                 <section>
                     <h2> Your favourites</h2>
                     <p> Drag and drop into you meal plan</p>
