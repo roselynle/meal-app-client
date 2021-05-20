@@ -2,7 +2,7 @@ import React, { useEffect } from "react"
 import { AddtoCartBtn, SaveRecipeButton, NavBar } from '../../components'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from "react-router"
-import { fetchRecipeDetails } from "../../actions"
+import { fetchRecipeDetails, fetchFavRecipes } from "../../actions"
 import "./style.css"
 
 
@@ -10,11 +10,12 @@ import "./style.css"
 const RecipePage = () => {
     const params = useParams()
     const id = params.id
-    console.log(id)
+    const user_id = sessionStorage.getItem('id')
 
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(fetchRecipeDetails(id))
+        dispatch(fetchFavRecipes(user_id))
     }, [])
 
     const recipe = useSelector(state => state.singleRecipeReducer.recipe)
@@ -24,9 +25,6 @@ const RecipePage = () => {
 
 
     const ingredients = recipe.ingredients
-    const diet_reqs = recipe.diet_req
-
-    console.log(diet_reqs)
 
     if (error) {
         return (<h1>Oops... this recipe does not exist</h1>)

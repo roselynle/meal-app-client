@@ -1,28 +1,23 @@
 import React, {useState, useEffect} from "react";
 import { MealCards, NavBar, Favourites, AboutModal} from "../../components";
-import { DragDropContext, Droppable } from "react-beautiful-dnd"
+import { DragDropContext } from "react-beautiful-dnd"
 import { apiUrl } from '../../../config/config.js';
+import { useSelector, useDispatch } from 'react-redux'
+import { fetchFavRecipes } from "../../actions"
 import axios from 'axios'
 
 const Meals = () => {
-    const [favData, setFavData] = useState([])
+    const favData = useSelector(state => state.favRecipeReducer.favrecipes)
     const [mealPlan, setMealPlan] = useState({})
     const user_id = sessionStorage.getItem('id')
 
+    const dispatch = useDispatch()
     useEffect(async () => {
-        try {
-            const { data } = await axios.get(
-                `${apiUrl}/user/${user_id}/favourites`
-            );
-            setFavData(data)
-        } catch (err) {
-            console.warn(err.message)
-        }
+        dispatch(fetchFavRecipes(user_id))
         try {
             const { data } = await axios.get(
                 `${apiUrl}/user/${user_id}/mealplan`
             );
-            console.log(data)
             setMealPlan(data)
         } catch (err) {
             console.warn(err.message)
@@ -78,7 +73,7 @@ const Meals = () => {
                     </div>
                 </div>
 
-                <button onClick={sendIngredients}>Send me a shopping list<i class="fas fa-shopping-cart"></i></button>
+                <button onClick={sendIngredients}>Send me a shopping list<i className="fas fa-shopping-cart"></i></button>
                 <section>
                     <h2> Your favourites</h2>
                     <p> Drag and drop into you meal plan</p>

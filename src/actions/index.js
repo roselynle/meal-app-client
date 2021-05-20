@@ -11,7 +11,6 @@ export const fetchRecipes = () => {
 
       const { data } = await axios.get(url);
 
-      console.log(data)
       let recipeData = data.map((element, i) => ({
         _id: element._id,
         title: element.title,
@@ -66,7 +65,6 @@ export const fetchRecipeDetails = (id) => {
         type: "LOAD_RECIPE",
         payload: recipeData,
       });
-      console.log(recipeData)
     } catch (err) {
       console.warn(err.message)
       dispatch({
@@ -102,8 +100,6 @@ export const fetchFavRecipes = (user_id) => {
             //     correct_answer: element.correct_answer,
             //     answers: [...element.incorrect_answers, element.correct_answer],
           }));
-
-          console.log(favrecipeData)
     
 
       dispatch({

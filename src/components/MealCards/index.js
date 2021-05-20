@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../App.css";
 import { RecipeCards } from '..'
-import axios from 'axios'
-import { apiUrl } from '../../../config/config.js';
 import { Droppable } from "react-beautiful-dnd"
 
 const MealCards = ({mealPlan}) => {
