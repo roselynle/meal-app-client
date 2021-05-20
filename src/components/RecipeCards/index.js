@@ -27,7 +27,7 @@ const RecipeCards = (props) => {
             <div className="recipe-card-body">
                 <h3 className="recipe-card-title">{props.recipe.title}</h3>
                 <p>{props.recipe.description}</p>
-                <ul> { props.recipe.diet_req && props.recipe.diet_req.map(item => <li>{item}</li>)}</ul>
+                <ul> { props.recipe.diet_req && props.recipe.diet_req.map((item, index) => <li key={index}>{item}</li>)}</ul>
 
                 {/* <Redirect to={`recipes/${props.recipe.id}`}> */}
                 {/* <a

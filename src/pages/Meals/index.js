@@ -40,7 +40,6 @@ const Meals = () => {
                 const { data } = await axios.patch(
                     `${apiUrl}/user/${user_id}/mealplan/new`, options
                 );
-                console.log(data)
             } catch (err) {
                 console.warn(err.message)
             }
@@ -58,13 +57,11 @@ const Meals = () => {
     }
 
     const onDragEnd = (result) => {
-        console.log(result)
         if (result.destination.droppableId.substring(0, 3) === "day") {
             setMealPlan(prev => ({
                 ...prev,
                 [result.destination.droppableId]: favData.filter(meal => meal._id == result.draggableId)[0]
             }))
-            console.log(mealPlan)
         }
         return
     };
