@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import axios from 'axios'
+import React from "react";
 import { RecipeCards } from '../index'
-import { apiUrl } from '../../../config/config.js';
 import { Droppable, Draggable } from "react-beautiful-dnd"
 
 

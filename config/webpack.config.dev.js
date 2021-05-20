@@ -7,7 +7,6 @@ config.devServer = {
     port: 8080,
     hot: true,
     open: true,
-    host: "0.0.0.0",
     watchContentBase: true,
 };
 

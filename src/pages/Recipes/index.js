@@ -1,11 +1,14 @@
 import React, {useEffect} from "react";
 import { RecipeCards, NavBar } from "../../components";
-import { fetchRecipes } from "../../actions"
+import { fetchRecipes, fetchFavRecipes } from "../../actions"
 import { useSelector, useDispatch } from 'react-redux';
 import './style.css'
 
 
 const Recipes = () => {
+
+    const user_id = sessionStorage.getItem('id')
+
 
 
 
@@ -13,11 +16,18 @@ const Recipes = () => {
     const  recipes  = useSelector(state => state.recipeReducer.recipes)
     const loading = useSelector(state => state.loading)
 
+
+
     useEffect(() => {
         dispatch(fetchRecipes())
     }, [])
 
-    console.log(recipes)
+    useEffect(() => {
+        dispatch(fetchFavRecipes(user_id))
+    }, [])
+
+
+    // console.log(favRecipes)
     const renderRecipes = recipes.map((recipe, index) => <RecipeCards key={index} showFavBtn={true} recipe={recipe} />)
 
 

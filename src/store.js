@@ -2,12 +2,13 @@ import { createStore, applyMiddleware, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-import {recipeReducer, singleRecipeReducer} from './reducers'
+import {recipeReducer, singleRecipeReducer, favRecipeReducer} from './reducers'
 
 
 const rootReducer = combineReducers({
     recipeReducer,
-    singleRecipeReducer // key name same as the carefully renamed default export
+    singleRecipeReducer,
+    favRecipeReducer// key name same as the carefully renamed default export
    
   })
 

@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "../../App.css";
 import { RecipeCards } from '..'
-import axios from 'axios'
-import { apiUrl } from '../../../config/config.js';
 import { Droppable } from "react-beautiful-dnd"
 
-const MealCards = ({mealPlan}) => {
+const MealCards = ({ mealPlan }) => {
 
     const days = [
         { id: 1, day: "1" },
@@ -19,19 +17,20 @@ const MealCards = ({mealPlan}) => {
 
     const renderDays = () => {
         return days.map((d, index) => (
-            
+
             <Droppable droppableId={`day${d.id}`} key={index}>
-            {(provided) => (
-            <div key={index} className="meal-card" {...provided.droppableProps} ref={provided.innerRef}>
-                <div className="meal-card-body">
-                    <h4 className="meal-card-title">Day {d.day}</h4>
+                {(provided) => (
+                    <div key={index} className="meal-card" {...provided.droppableProps} ref={provided.innerRef}>
+                        <div className="meal-card-body">
+                            <h4 className="meal-card-title">Day {d.day}</h4>
                             <div>
-                                {mealPlan[`day${d.id}`] ? <RecipeCards recipe={mealPlan[`day${d.id}`]}/> : <p>Choose a meal</p>}
-                                </div>
-                </div>
-                {provided.placeholder}</div>
-                        )}
-                    </Droppable>
+                                {mealPlan[`day${d.id}`] ? <RecipeCards recipe={mealPlan[`day${d.id}`]} hideSave={true} /> : <p>Choose a meal</p>}
+                            </div>
+                        </div>
+                        {provided.placeholder}
+                    </div>
+                )}
+            </Droppable>
         ));
     }
 

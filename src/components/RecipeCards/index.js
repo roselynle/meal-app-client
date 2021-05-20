@@ -5,9 +5,6 @@ import "./style.css"
 import {SaveRecipeButton} from '..'
 
 const RecipeCards = (props) => {
-
-
-
     return (
         <div className="recipe-card">
             <img src={props.recipe.image_url} className="card-img-top" alt="Recipe Image"/>
@@ -18,12 +15,8 @@ const RecipeCards = (props) => {
 
 
                 <Link to={`/recipes/${props.recipe._id}`}>See recipe</Link>
-           
-                <SaveRecipeButton id={props.recipe._id}/>
-                
-                
-                
-   
+                {props.hideSave ? null : <SaveRecipeButton id={props.recipe._id}/> }
+
             </div>
         </div>
     );
