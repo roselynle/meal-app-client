@@ -28,8 +28,8 @@ const RegisterForm = () =>  {
         setPasswordConfirmation(e.target.value);
     };
 
-    const formIncomplete = () =>  password !== passwordConfirmation
-    console.log(formIncomplete)
+    const formIncomplete = () => password !== passwordConfirmation
+    const missingInfo = () => !email || !password || !username
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -77,7 +77,7 @@ function login(data){
                         <input type="password" name="passwordConfirmation" onChange={handlePasswordConfirmation}/>
                     </div>                 
                     <div className="register-button">
-                    <input role="register" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Register"/>
+                    <input role="register" type="submit" className={missingInfo() ? 'disabled' : 'enabled'} disabled={missingInfo()} value="Register"/>
                 </div>
                 </form>
                 <div>
