@@ -152,7 +152,7 @@ video {
 
 #meals-container {
   text-align: center;
-  padding-top: 40px;
+  padding-top: 30px;
   position: relative;
 }
 
@@ -171,6 +171,19 @@ video {
 #favourites {
   text-align: center;
   margin-top: 75px;
+}
+
+
+.about-modal {
+  text-align: right;
+}
+
+.modal-body {
+  text-align:center;
+}
+
+.modal-body h3 {
+  padding-top: 15px;
 }
 
 /* New recipe page */
