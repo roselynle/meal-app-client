@@ -39,7 +39,7 @@ const Recipes = () => {
         {
             loading ?
                 <h2>Loading . . .</h2>
-                : <section aria-label="recipes" id="recipes">{ renderRecipes }</section>
+                : <section role='recipeContainer' aria-label="recipes" id="recipes">{ renderRecipes }</section>
         }
         </>
        

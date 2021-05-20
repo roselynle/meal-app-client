@@ -10,5 +10,11 @@ describe('Recipes', () => {
         const recipeTitle = screen.getByText('Recipes')
         expect(recipeTitle).toBeInTheDocument()
         })
+
+        test('it renders a recipe container if not loading', () => {
+          const section = screen.getByRole('recipeContainer')
+          expect(section).toBeInTheDocument()
+          })
     
       })
+
