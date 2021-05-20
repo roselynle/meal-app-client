@@ -28,8 +28,8 @@ const RegisterForm = () =>  {
         setPasswordConfirmation(e.target.value);
     };
 
-    const formIncomplete = () =>  password !== passwordConfirmation
-    console.log(formIncomplete)
+    const formIncomplete = () => password !== passwordConfirmation
+    const missingInfo = () => !email || !password || !username
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -49,7 +49,7 @@ const RegisterForm = () =>  {
             history.push('/meals')
         } catch (err) {
             console.warn(err);
-            setError("Registration unsuccessful - username already exists");
+            setError("Registration unsuccessful - please try another username");
         }
     }
 
@@ -58,7 +58,7 @@ function login(data){
 }
 
         return (
-
+<>
                 <form onSubmit={handleRegister} id="register-form">
                     <div className="register-input">
                         <label htmlFor="username">Username:</label>
@@ -77,13 +77,14 @@ function login(data){
                         <input type="password" name="passwordConfirmation" onChange={handlePasswordConfirmation}/>
                     </div>                 
                     <div className="register-button">
-                    <input role="register" type="submit" className={formIncomplete() ? 'disabled' : 'enabled'} disabled={formIncomplete()} value="Register"/>
+                    <input role="register" type="submit" className={missingInfo() ? 'disabled' : 'enabled'} disabled={missingInfo()} value="Register"/>
                 </div>
+                </form>
                 <div>
                                     { error ? <p>{error}</p> : ""}
                                     {formIncomplete() ? <p>Passwords do not match</p>  : ""}
                     </div>
-                </form>
+</>
 
         )
 }
