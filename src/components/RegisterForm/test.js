@@ -16,4 +16,12 @@ describe('Register Form', () => {
             const input = screen.getAllByRole('register-input')
             expect(input).toHaveLength(3)
         })
+
+        test("shows error on unsuccesful registration", () => {
+        const register = screen.getByRole('register')
+        userEvent.click(register)
+        let error = screen.getByText("Registration unsuccessful - please try another username")
+        expect(error).toBeInTheDocument()
+// currently not passing
     })
+})

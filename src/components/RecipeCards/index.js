@@ -22,7 +22,7 @@ const RecipeCards = (props) => {
                 <SaveRecipeButton id={props.recipe._id}/>
                 
                 
-   
+                
    
             </div>
         </div>
