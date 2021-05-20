@@ -19,8 +19,8 @@ const RecipeCards = (props) => {
 
                 <Link to={`/recipes/${props.recipe._id}`}>See recipe</Link>
            
-                {props.showFavBtn ? <SaveRecipeButton id={props.recipe._id}/>: <button>x</button>
-                }
+                <SaveRecipeButton id={props.recipe._id}/>
+                
                 
    
    
