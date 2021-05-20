@@ -78,7 +78,7 @@ const Meals = () => {
                     </div>
                 </div>
 
-                <button onClick={sendIngredients}>What do I need? <i class="fas fa-shopping-cart"></i></button>
+                <button onClick={sendIngredients}>Send me a shopping list<i class="fas fa-shopping-cart"></i></button>
                 <section>
                     <h2> Your favourites</h2>
                     <p> Drag and drop into you meal plan</p>
