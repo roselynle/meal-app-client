@@ -25,7 +25,6 @@ const MealCards = ({mealPlan}) => {
             <div key={index} className="meal-card" {...provided.droppableProps} ref={provided.innerRef}>
                 <div className="meal-card-body">
                     <h4 className="meal-card-title">Day {d.day}</h4>
-                    <p>Meal</p>
                             <div>
                                 {mealPlan[`day${d.id}`] ? <RecipeCards recipe={mealPlan[`day${d.id}`]}/> : <p>Choose a meal</p>}
                                 </div>
