@@ -53,7 +53,7 @@ const RecipePage = () => {
                                 <h5>{recipe.description} </h5>
                             </div>
 
-                            <img src={recipe.image_url} />
+                            <img className="recipe-image" src={recipe.image_url} />
                             <ul className="ingredients"> {ingredients && ingredients.map((item, index) => <li key={index}>{item.amount} {item.measure} {item.ingredient}</li>)}</ul>
 
                             <div className="instructions">

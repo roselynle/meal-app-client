@@ -2,25 +2,18 @@
     width: 70%;
     margin: auto;
     text-align: center;
-   border-radius: 10px;
+    border-radius: 10px;
     margin-top: 50px;
     list-style: none;
-    /* flex-direction: column; */
     align-items: center;
     background-color: #c7dfda;
-
     display: grid;
-
     margin-bottom: 100px;
     padding: 50px;
-   
-
-
     column-gap: 2rem;
     row-gap: 2rem;
     grid-template-rows: auto auto auto;
-  grid-template-columns: 1fr 1fr;
-
+    grid-template-columns: 1fr 1fr;
     grid-template-areas: "header header"
                        "img  ingredients"
                        "instructions  instructions";
@@ -34,33 +27,17 @@
     
 }
 
-/* .infoContainer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
 
 .instructions{
-    /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; */
-    
     grid-area:instructions;
-
-    
 }
 
-.img-ing-container{
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
-    margin: 50px 0px;
-    
-}
 
-.img-ing-container img{
-   grid-area:img;
+img.recipe-image{
+    border-radius: 20px;
+    grid-area:img;
+    box-shadow: 5px 5px 5px grey;
+
 }
 
 .headers{
@@ -70,10 +47,7 @@
 }
 
 .ingredients{
-
-    grid-area:ingredients;
-
-    
+    grid-area:ingredients;   
 }
 
 
