@@ -1,7 +1,7 @@
 div.meal-card{
     padding: 10px;
     height: auto;
-    max-width: 200px;
+    max-width: 180px;
     display: flex;
     justify-content: center;
     height:auto;
@@ -11,4 +11,3 @@ div.recipe-card{
     padding:20px;
     
 }
-

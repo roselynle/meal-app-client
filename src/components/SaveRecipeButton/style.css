@@ -3,6 +3,6 @@
     width: 70%;
 }
 
-.save-recipe-btn{
+.save-recipe-btn:hover{
     background-color: #7db4a9;
    }

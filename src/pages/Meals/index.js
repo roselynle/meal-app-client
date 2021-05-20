@@ -5,6 +5,7 @@ import { apiUrl } from '../../../config/config.js';
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchFavRecipes } from "../../actions"
 import axios from 'axios'
+import './style.css'
 
 const Meals = () => {
     const favData = useSelector(state => state.favRecipeReducer.favrecipes)
@@ -72,11 +73,13 @@ const Meals = () => {
                         <MealCards mealPlan={mealPlan} />
                     </div>
                 </div>
+                <div id="buttonContainer">
+                <button id="sendEmail" onClick={sendIngredients}>Send me a shopping list<i className="fas fa-shopping-cart"></i></button>
+                </div>
 
-                <button onClick={sendIngredients}>Send me a shopping list<i className="fas fa-shopping-cart"></i></button>
                 <section>
                     <h2> Your favourites</h2>
-                    <p> Drag and drop into you meal plan</p>
+                    <p id="dragNdrop"> Drag and drop into you meal plan</p>
                 </section>
                 <Favourites favData={favData} />
             </ DragDropContext>
