@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { MealCards, NavBar, Favourites } from "../../components";
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
 import { apiUrl } from '../../../config/config.js';
@@ -22,15 +22,44 @@ const Meals = () => {
             const { data } = await axios.get(
                 `${apiUrl}/user/${user_id}/mealplan`
             );
+            console.log(data)
             setMealPlan(data)
         } catch (err) {
             console.warn(err.message)
         }
     }, [])
 
+    useEffect(async () => {
+        if (Object.keys(mealPlan).length > 0) {
+            try {
+                const options = {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(mealPlan)
+                }
+                const { data } = await axios.patch(
+                    `${apiUrl}/user/${user_id}/mealplan/new`, options
+                );
+                console.log(data)
+            } catch (err) {
+                console.warn(err.message)
+            }
+        }
+    }, [mealPlan])
+
+    const sendIngredients = async () => {
+        try {
+            const { data } = await axios.get(
+                `${apiUrl}/user/${user_id}/mealplan/ingredients`
+            );
+        } catch (err) {
+            console.warn(err.message)
+        }
+    }
+
     const onDragEnd = (result) => {
         console.log(result)
-        if (result.destination.droppableId.substring(0,3) === "day") {
+        if (result.destination.droppableId.substring(0, 3) === "day") {
             setMealPlan(prev => ({
                 ...prev,
                 [result.destination.droppableId]: favData.filter(meal => meal._id == result.draggableId)[0]
@@ -38,13 +67,6 @@ const Meals = () => {
             console.log(mealPlan)
         }
         return
-        if (!result.destination) return;
-
-        const items = Array.from(characters);
-        const [reorderedItem] = items.splice(result.source.index, 1);
-        items.splice(result.destination.index, 0, reorderedItem);
-
-        updateCharacters(items);
     };
 
     return (
@@ -54,15 +76,16 @@ const Meals = () => {
                 <div id="meals-container">
                     <h2>Here are your meals for the week:</h2>
                     <div className="row">
-                        <MealCards />
+                        <MealCards mealPlan={mealPlan} />
                     </div>
                 </div>
 
+                <button onClick={sendIngredients}>What do I need?</button>
                 <section>
                     <h2> Your favourites</h2>
                     <p> Drag and drop into you meal plan</p>
                 </section>
-                <Favourites />
+                <Favourites favData={favData} />
             </ DragDropContext>
         </>
     );

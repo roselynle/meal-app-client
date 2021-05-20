@@ -23,11 +23,8 @@ function App() {
             body: JSON.stringify(userData)
         }
         const r = await fetch(`${apiUrl}/login`, options)
-        console.log(r)
         const data = await r.json()
-        console.log(data)
         if (data.err){ throw Error(data.err); }
-        console.log(data.err)
         if (data.status === 500) {alert("login unsuccessful")}
         sessionStorage.setItem('username', data[0] )
         sessionStorage.setItem('id', data[1] )
