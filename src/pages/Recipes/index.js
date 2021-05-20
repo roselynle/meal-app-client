@@ -10,8 +10,6 @@ const Recipes = () => {
     const user_id = sessionStorage.getItem('id')
 
 
-
-
     const dispatch = useDispatch()
     const  recipes  = useSelector(state => state.recipeReducer.recipes)
     const loading = useSelector(state => state.loading)
@@ -34,7 +32,7 @@ const Recipes = () => {
     return (
         <>
         <NavBar/>
-            <h2>Recipes</h2>
+            <h1>Recipes</h1>
       
         {
             loading ?

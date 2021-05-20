@@ -1,11 +1,27 @@
 #recipes{
-    display: flex;
-    flex-wrap: wrap;
+   
+        display:grid;
+        grid-gap:40px;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+  
+        grid-auto-rows: repeat(auto-fit,minmax(250px,1fr));
+
+        grid-auto-flow: dense;
+        margin: 30px 50px;
+        
+      
 
 }
 
 
 h1{
     text-align: center;
+    font-size: 4rem;
     
 }
+
+a{
+    background-color: blue;
+}
+

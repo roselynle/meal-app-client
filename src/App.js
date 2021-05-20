@@ -45,7 +45,7 @@ function App() {
                 <Route path='/login'> <Pages.Login error={error} login={login}/></Route>
                 <Route path='/register' component={Pages.Register}/>
                 <PrivateRoute path="/meals" loggedIn={loggedIn} component={Pages.Meals} />
-                <PrivateRoute exact path="/recipes" loggedIn={loggedIn} component={Pages.Recipes} />
+                <Route exact path="/recipes" loggedIn={loggedIn} component={Pages.Recipes} />
                 <Route path="/recipes/:id" loggedIn={loggedIn} component={Pages.RecipePage}/>
                 <PrivateRoute path="/newrecipe" loggedIn={loggedIn} component={Pages.AddRecipe}/>
                 <Route component={Pages.NotFound} />
