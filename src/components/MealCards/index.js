@@ -76,8 +76,8 @@ const MealCards = () => {
 
     const renderDays = () => {return days.map((d) => (
         <div key={d.id} className="meal-card">
-            <div className="meal-card-body">
-                <h4 className="meal-card-title">Day {d.day}</h4>
+            <div role="meal-card" className="meal-card-body">
+                <h4  className="meal-card-title">Day {d.day}</h4>
                 <p>Meal</p>
                 <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={d.day}/>
             </div>
