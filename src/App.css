@@ -68,10 +68,6 @@ video {
 }
 
 /* Login and Register Pages */
-.register-input {
-  margin: 20px 0px;
-}
-
 .register-input label {
   margin-right: 10px;
 }
@@ -92,10 +88,6 @@ video {
 
 .login-container h1, .register-container h1 {
   padding-bottom: 20px;
-}
-
-.login-input {
-  margin: 20px 0px;
 }
 
 .login-input label {
