@@ -18,7 +18,7 @@ const Recipes = () => {
     }, [])
 
     console.log(recipes)
-    const renderRecipes = recipes.map(recipe => <RecipeCards key={recipe.id} showFavBtn={true} recipe={recipe} />)
+    const renderRecipes = recipes.map(recipe => <RecipeCards key={recipe._id} showFavBtn={true} recipe={recipe} />)
 
 
     return (
