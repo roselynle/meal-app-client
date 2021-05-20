@@ -11,7 +11,9 @@ const RecipeCards = (props) => {
             <img src={props.recipe.image_url} className="card-img-top" alt="Recipe Image"/>
             <div className="recipe-card-body">
                
-                <p>{props.recipe.description}</p>
+            {props.hideDescription ? null : <p>{props.recipe.description}</p> }
+
+                
                 <ul> { props.recipe.diet_req && props.recipe.diet_req.map((item, index) => <li key={index}>{item}</li>)}</ul>
 
                 <div className="buttons">

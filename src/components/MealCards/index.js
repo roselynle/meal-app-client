@@ -2,6 +2,7 @@ import React from "react";
 import "../../App.css";
 import { RecipeCards } from '..'
 import { Droppable } from "react-beautiful-dnd"
+import "./style.css"
 
 const MealCards = ({ mealPlan }) => {
 
@@ -24,7 +25,7 @@ const MealCards = ({ mealPlan }) => {
                         <div className="meal-card-body">
                             <h4 className="meal-card-title">Day {d.day}</h4>
                             <div>
-                                {mealPlan[`day${d.id}`] ? <RecipeCards recipe={mealPlan[`day${d.id}`]} hideSave={true} /> : <p>Choose a meal</p>}
+                                {mealPlan[`day${d.id}`] ? <RecipeCards recipe={mealPlan[`day${d.id}`]} hideSave={true} hideDescription={true} /> : <p>Choose a meal</p>}
                             </div>
                         </div>
                         {provided.placeholder}
