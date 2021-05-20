@@ -76,3 +76,47 @@ export const fetchRecipeDetails = (id) => {
     }
   }
 }
+
+
+export const fetchFavRecipes = (user_id) => {
+
+  // const url = `http://127.0.0.1:5000/recipes/${id}`
+  const url = `${apiUrl}/user/${user_id}/favourites`
+
+
+  return async (dispatch) => {
+    try {
+
+    
+          const { data } = await axios.get(url);
+    
+          
+          let favrecipeData = data.map((element, i) => ({
+            _id: element._id,
+            // title: element.title,
+            // description: element.description,
+            // ingredients: element.ingredients,
+            // diet_req: element.diet_req,
+            // instructions: element.instructions,
+            // img_url: element.image_url
+            //     correct_answer: element.correct_answer,
+            //     answers: [...element.incorrect_answers, element.correct_answer],
+          }));
+
+          console.log(favrecipeData)
+    
+
+      dispatch({
+        type: "LOAD_FAV_RECIPES",
+        payload: favrecipeData,
+      });
+
+    } catch (err) {
+      console.warn(err.message)
+      // dispatch({
+      //   type: "SET_ERROR",
+      // //   payload: err.message
+      // })
+    }
+  }
+}
