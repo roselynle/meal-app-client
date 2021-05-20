@@ -7,7 +7,7 @@ import {SaveRecipeButton} from '..'
 const RecipeCards = (props) => {
     return (
         <div className="recipe-card">
-             <h3 className="recipe-card-title">{props.recipe.title}</h3>
+             <h4 className="recipe-card-title">{props.recipe.title}</h4>
             <img src={props.recipe.image_url} className="card-img-top" alt="Recipe Image"/>
             <div className="recipe-card-body">
                

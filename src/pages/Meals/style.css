@@ -1,5 +1,6 @@
 button#sendEmail:hover{
    background-color:#92d1c4;
+       transition: 0.2s;
 }
 
 h2{
@@ -15,5 +16,5 @@ p#dragNdrop{
     width:100%;
     display: flex;
     justify-content: center;
-    margin: 30px 0px;
+    margin: 50px 0px;
 }

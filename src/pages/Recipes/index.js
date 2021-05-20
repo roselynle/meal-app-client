@@ -32,7 +32,7 @@ const Recipes = () => {
     return (
         <>
         <NavBar/>
-            <h1>Recipes</h1>
+            <h2 style={{paddingTop: "50px"}}>Recipes</h2>
       
         {
             loading ?

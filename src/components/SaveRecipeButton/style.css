@@ -5,4 +5,5 @@
 
 .save-recipe-btn:hover{
     background-color: #7db4a9;
+        transition: 0.2s;
    }

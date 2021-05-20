@@ -45,6 +45,13 @@ body {
   font-size: 1rem;
 }
 
+.welcome-container input:hover {
+background-color: #92d1c3;
+transition: 0.2s;
+
+}
+
+
 video {
   object-fit: cover;
   width: 100%;
@@ -75,6 +82,12 @@ video {
 
 .register-button, .login-button {
   width: 100% !important;
+}
+
+.register-button input:hover, .login-button input:hover {
+    background-color: #7db4a9;
+    color: white;
+    transition: 0.2s;
 }
 
 .register-container, .login-container  {
@@ -133,7 +146,6 @@ video {
   border-radius: 5px;
   color: black;
   text-align: center;
-  padding: 10px 60px 80px 60px;
   margin: 0.5rem;
   box-shadow: 1px 3px 6px grey;
 }
@@ -145,7 +157,6 @@ video {
 
 #meals-container {
   text-align: center;
-  padding-top: 30px;
   position: relative;
 }
 
@@ -182,7 +193,7 @@ video {
 /* New recipe page */
 #new-recipe-container h2 {
  text-align: center;
- padding-top: 40px;
+ padding-top: 50px;
  padding-bottom: 20px;
 }
 
