@@ -5,8 +5,6 @@ import "./style.css"
 import {SaveRecipeButton} from '..'
 
 const RecipeCards = (props) => {
-
-    console.log(props.recipe._id)
     // const history = useHistory()
 
     // const handleclick = (id) => {
@@ -21,15 +19,15 @@ const RecipeCards = (props) => {
     // console.log(props.recipe.id)
 
  
-    const url = `recipes/${props.recipe.id}`
+    //const url = `recipes/${props.recipe.id}`
 
     return (
         <div className="recipe-card">
-            <img src={props.recipe.img_url} className="card-img-top" alt="Recipe Image"/>
+            <img src={props.recipe.image_url} className="card-img-top" alt="Recipe Image"/>
             <div className="recipe-card-body">
                 <h3 className="recipe-card-title">{props.recipe.title}</h3>
                 <p>{props.recipe.description}</p>
-                <ul> { props.recipe.diet_req && props.recipe.diet_req.map(item => <li>{item}</li>)}</ul>
+                <ul> { props.recipe.diet_req && props.recipe.diet_req.map((item, index) => <li key={index}>{item}</li>)}</ul>
 
                 {/* <Redirect to={`recipes/${props.recipe.id}`}> */}
                 {/* <a
