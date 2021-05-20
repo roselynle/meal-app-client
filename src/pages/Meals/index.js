@@ -1,11 +1,42 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { MealCards, NavBar, Favourites } from "../../components";
 import { DragDropContext, Droppable } from "react-beautiful-dnd"
+import { apiUrl } from '../../../config/config.js';
+import axios from 'axios'
 
 const Meals = () => {
+    const [favData, setFavData] = useState([])
+    const [mealPlan, setMealPlan] = useState({})
+    const user_id = sessionStorage.getItem('id')
+
+    useEffect(async () => {
+        try {
+            const { data } = await axios.get(
+                `${apiUrl}/user/${user_id}/favourites`
+            );
+            setFavData(data)
+        } catch (err) {
+            console.warn(err.message)
+        }
+        try {
+            const { data } = await axios.get(
+                `${apiUrl}/user/${user_id}/mealplan`
+            );
+            setMealPlan(data)
+        } catch (err) {
+            console.warn(err.message)
+        }
+    }, [])
 
     const onDragEnd = (result) => {
         console.log(result)
+        if (result.destination.droppableId.substring(0,3) === "day") {
+            setMealPlan(prev => ({
+                ...prev,
+                [result.destination.droppableId]: favData.filter(meal => meal._id == result.draggableId)[0]
+            }))
+            console.log(mealPlan)
+        }
         return
         if (!result.destination) return;
 

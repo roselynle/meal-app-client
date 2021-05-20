@@ -7,8 +7,7 @@ import { Droppable } from "react-beautiful-dnd"
 
 const MealCards = () => {
     const [favData, setFavData] = useState([])
-    const [newMealPlan, setNewMealPlan] = useState({})
-    const [MealPlan, setMealPlan] = useState({})
+    const [mealPlan, setMealPlan] = useState({})
     const user_id = sessionStorage.getItem('id')
 
     useEffect(async () => {
@@ -41,11 +40,11 @@ const MealCards = () => {
     ];
 
     const chooseMeal = (choice, day) => {
-        setNewMealPlan(prev => ({
+        setMealPlan(prev => ({
             ...prev,
             [day]: choice
         }))
-        console.log(newMealPlan)
+        console.log(mealPlan)
     }
 
     const sendPlan = async () => {
@@ -53,7 +52,7 @@ const MealCards = () => {
             const options = {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(Object.values(newMealPlan))
+                body: JSON.stringify(mealPlan)
             }
             const { data } = await axios.patch(
                 `${apiUrl}/user/${user_id}/mealplan/new`, options
@@ -76,12 +75,12 @@ const MealCards = () => {
     }
 
     const renderDays = () => {
-        return days.map((d) => (
-            <div key={d.id} className="meal-card">
+        return days.map((d, index) => (
+            <div key={index} className="meal-card">
                 <div className="meal-card-body">
                     <h4 className="meal-card-title">Day {d.day}</h4>
                     <p>Meal</p>
-                    <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={d.day} />
+                    <MealChoice chooseMeal={chooseMeal} favourites={favData} dayNumber={`day${d.id}`} />
                     <Droppable droppableId={`day${d.id}`}>
                         {(provided) => (
                             <div {...provided.droppableProps} ref={provided.innerRef}>
