@@ -9,4 +9,6 @@ export { default as SaveRecipeButton} from './SaveRecipeButton'
 export { default as PrivateRoute} from './PrivateRoute'  
 export { default as Favourites} from './Favourites'
 export { default as AboutModal} from './AboutModal'
+export { default as BackButton} from './BackButton'
+
 
