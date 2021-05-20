@@ -17,7 +17,7 @@ const AboutModal = () => {
         <>
             <div role="div" className="about-modal">
 
-                <a className="far fa-question-circle" style={{ fontSize: "2rem", padding: "10px", textDecoration: "none", color: "black"}} onClick={openModal}></a>
+                <a className="far fa-question-circle" role="link" style={{ fontSize: "2rem", padding: "10px", textDecoration: "none", color: "black"}} onClick={openModal}></a>
 
             </div>
             
