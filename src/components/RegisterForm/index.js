@@ -81,7 +81,7 @@ function login(data){
                 </div>
                 </form>
                 <div>
-                                    { error ? <p>{error}</p> : ""}
+                                    { error ? <p role="error">{error}</p> : ""}
                                     {formIncomplete() ? <p>Passwords do not match</p>  : ""}
                     </div>
 </>
