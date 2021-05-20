@@ -1,8 +1,10 @@
 import React, { useEffect } from "react"
-import { AddtoCartBtn, SaveRecipeButton, NavBar } from '../../components'
+import { AddtoCartBtn, SaveRecipeButton, NavBar, BackButton } from '../../components'
 import { useSelector, useDispatch } from 'react-redux'
 import { useParams } from "react-router"
 import { fetchRecipeDetails } from "../../actions"
+import { useHistory } from 'react-router-dom';
+
 import "./style.css"
 
 
@@ -37,6 +39,8 @@ const RecipePage = () => {
         return (
             <>
                 <NavBar />
+                <BackButton/>
+
 
                 {
                     loading ?
