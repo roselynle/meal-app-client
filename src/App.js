@@ -39,6 +39,7 @@ function App() {
     
     return (
         <>
+            
             <Switch>
                 <Route exact path="/" component={Pages.Home} />
                 <Route path='/login'> <Pages.Login error={error} login={login}/></Route>

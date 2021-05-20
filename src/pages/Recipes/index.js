@@ -34,7 +34,7 @@ const Recipes = () => {
     return (
         <>
         <NavBar/>
-            <h2 role="heading">Recipes</h2>
+            <h2>Recipes</h2>
       
         {
             loading ?
