@@ -22,8 +22,9 @@ const RecipePage = () => {
     const loading = useSelector(state => state.singleRecipeReducer.loading)
 
 
-
+    
     const ingredients = recipe.ingredients
+    console.log(ingredients)
     const diet_reqs = recipe.diet_req
 
     console.log(diet_reqs)
@@ -42,19 +43,22 @@ const RecipePage = () => {
                         <h2>Loading . . .</h2>
                         :
                         <>
-                            <div className="recipeInfo">
+                        <div className="recipeInfo">
+                            <div className="headers">
                                 <h1>{recipe.title} </h1>
-                                <div className="infoContainer">
-                                    <img src={recipe.image_url} />
-                                    <div className="instructions">
-                                        <h3>{recipe.description} </h3>
-                                        <ul> {ingredients && ingredients.map((item, index) => <li key={index}>{item.amount}{item.measure}{item.ingredient}</li>)}</ul>
-                                        <p>{recipe.instructions} </p>
-                                        {/* <ul> { diet_req && diet_req.map(item => <li>{item}</li>)}</ul> */}
-                                    </div>
-                                </div>
+                                <h5>{recipe.description} </h5>
+                            </div>
+
+                            <img src={recipe.image_url} />
+                            <ul className="ingredients"> {ingredients && ingredients.map((item, index) => <li key={index}>{item.amount} {item.measure} {item.ingredient}</li>)}</ul>
+
+                            <div className="instructions">
+                                <p>{recipe.instructions} </p>
+                                {/* <ul> { diet_req && diet_req.map(item => <li>{item}</li>)}</ul> */}
                                 <SaveRecipeButton id={id} />
                             </div>
+
+                        </div>
                         </>
                 }
             </>
