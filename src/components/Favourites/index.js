@@ -1,6 +1,7 @@
 import React from "react";
 import { RecipeCards } from '../index'
 import { Droppable, Draggable } from "react-beautiful-dnd"
+import "./style.css"
 
 
 const Favourites = ({favData}) => {
@@ -15,7 +16,7 @@ const Favourites = ({favData}) => {
   return (
     <Droppable droppableId="favourites">
       {(provided) => (
-        <section aria-label="recipes" id="recipes" {...provided.droppableProps} ref={provided.innerRef}>
+        <section aria-label="recipes" id="favRecipes" {...provided.droppableProps} ref={provided.innerRef}>
           {renderRecipes}{provided.placeholder}
         </section>
       )}

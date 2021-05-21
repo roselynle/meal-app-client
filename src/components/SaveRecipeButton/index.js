@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { apiUrl } from '../../../config/config.js';
 import { useSelector } from 'react-redux';
+import "./style.css"
 
 const SaveRecipeButton = (props) => {
 
@@ -45,7 +46,7 @@ const SaveRecipeButton = (props) => {
     }
     return (
         <>
-            { saved ? <button onClick={() => unsaveRecipe()}>Unsave</button> : <button onClick={() => saveRecipe()}>Save recipe</button>}
+            { saved ? <button className="save-recipe-btn" onClick={() => unsaveRecipe()}>Unsave</button> : <button  className="save-recipe-btn" onClick={() => saveRecipe()}>Save recipe</button>}
         </>
     );
 };

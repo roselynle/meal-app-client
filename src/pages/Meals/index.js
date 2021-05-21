@@ -5,11 +5,14 @@ import { apiUrl } from '../../../config/config.js';
 import { useSelector, useDispatch } from 'react-redux'
 import { fetchFavRecipes } from "../../actions"
 import axios from 'axios'
+import './style.css'
 
 const Meals = () => {
     const favData = useSelector(state => state.favRecipeReducer.favrecipes)
     const [mealPlan, setMealPlan] = useState({})
     const user_id = sessionStorage.getItem('id')
+    const username = sessionStorage.getItem('username')
+    const [emailSubmit, setEmailSubmit] = useState("")
 
     const dispatch = useDispatch()
     useEffect(async () => {
@@ -46,6 +49,7 @@ const Meals = () => {
             const { data } = await axios.get(
                 `${apiUrl}/user/${user_id}/mealplan/ingredients`
             );
+            setEmailSubmit("Email sent successfully!");
         } catch (err) {
             console.warn(err.message)
         }
@@ -67,16 +71,19 @@ const Meals = () => {
             <AboutModal/>
             <DragDropContext onDragEnd={onDragEnd}>
                 <div id="meals-container">
-                    <h2>Here are your meals for the week:</h2>
+                    <h2>Hey {username}, here are your meals for the week:</h2>
                     <div className="row">
                         <MealCards mealPlan={mealPlan} />
                     </div>
                 </div>
-
-                <button onClick={sendIngredients}>Send me a shopping list<i className="fas fa-shopping-cart"></i></button>
+                <div id="buttonContainer">
+                <button id="sendEmail" onClick={sendIngredients}>Send me a shopping list<i className="fas fa-shopping-cart"></i></button>
+                
+                </div>
+{ emailSubmit ? <h5 style={{textAlign: "center", paddingTop: "0px", paddingBottom: "30px"}}>{emailSubmit}</h5> : ""}
                 <section>
                     <h2> Your favourites</h2>
-                    <p> Drag and drop into you meal plan</p>
+                    <p id="dragNdrop"> Drag and drop into your meal plan</p>
                 </section>
                 <Favourites favData={favData} />
             </ DragDropContext>
