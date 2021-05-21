@@ -57,7 +57,7 @@ export const fetchRecipeDetails = (id) => {
         payload: recipeData,
       });
     } catch (err) {
-      //console.warn(err.message)
+      console.warn(err.message)
       dispatch({
         type: "SET_ERROR",
         payload: err.message

@@ -42,7 +42,8 @@ const RegisterForm = () => {
             }
             const r = await fetch(`${apiUrl}/register`, options)
             const data = await r.json()
-            if (data.err) { throw Error(data.err) }
+            console.log(data)
+            if (data.err) { throw new Error(data.err) }
             if (data.status === 500) { alert("registration unsuccessful") }
             setError();
             login(userData);
@@ -74,7 +75,7 @@ const RegisterForm = () => {
                 </div>
                 <div className="register-input">
                     <label htmlFor="password">Confirm Password:</label>
-                    <input type="password" name="passwordConfirmation" onChange={handlePasswordConfirmation} />
+                    <input type="password" name="passwordConfirmation" onChange={handlePasswordConfirmation}/>
                 </div>
                 <div className="register-button">
                     <input role="register" type="submit" className={missingInfo() ? 'disabled' : 'enabled'} disabled={missingInfo()} value="Register" />
