@@ -2,13 +2,13 @@ import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import BackButton from '.';
 
-
-
 describe('BackButton', () => {
-    test('it renders a backButton', () => {
+    beforeEach(() => {
+        render(<BackButton />, { wrapper: MemoryRouter })
+    })
 
-        render(<BackButton/>);
-        const button = screen.getByRole('button');
-        expect(button).toBeInTheDocument();
+    test('renders a back button', () => {
+        const btn = screen.getByRole('button')
+        expect(btn).toBeInTheDocument();
     })
 })

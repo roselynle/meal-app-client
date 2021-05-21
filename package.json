@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack-cli serve --mode development --config config/webpack.config.dev.js",
     "build": "webpack --config config/webpack.config.production.js",
-    "test": "jest --watch --setupFilesAfterEnv ./src/test/setupTests.js",
+    "test": "jest --watch --setupFilesAfterEnv ./src/test/setupTests.js --verbose false",
     "coverage": "jest --silent --setupFilesAfterEnv ./src/test/setupTests.js --coverage --watchAll=false"
   },
   "keywords": [],
@@ -46,6 +46,7 @@
     "react-router-dom": "^5.2.0",
     "redux": "^4.1.0",
     "redux-devtools-extension": "^2.13.9",
+    "redux-mock-store": "^1.5.4",
     "redux-thunk": "^2.3.0"
   },
   "jest": {

@@ -52,26 +52,3 @@ const SaveRecipeButton = (props) => {
 };
 
 export default SaveRecipeButton;
-
-
-
-
-    // const id = props.id
-
-    //     console.log(favRecipes)
-    // if (
-    //     favRecipes.filter(recipe => recipe._id == id ).length > 0){
-    //         return (
-    //             <button onClick={() => saveRecipe(id)}>Unsave</button>
-    //         );
-    //     }
-    //     else{
-    //            return (
-    //         <>
-    //         <button onClick={() => handleClick(id, setSaved)}>Save recipe</button>
-
-    //         { saved? <p>saved</p>: <p></p>}
-
-    //         </>
-    //     );
-    //     }

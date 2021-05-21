@@ -1,6 +1,5 @@
 import React from "react";
-import { useSelector, useDispatch } from 'react-redux';
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import "./style.css"
 import {SaveRecipeButton} from '..'
 

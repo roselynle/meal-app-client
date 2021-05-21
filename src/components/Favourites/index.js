@@ -16,7 +16,7 @@ const Favourites = ({favData}) => {
   return (
     <Droppable droppableId="favourites">
       {(provided) => (
-        <section aria-label="recipes" id="favRecipes" {...provided.droppableProps} ref={provided.innerRef}>
+        <section aria-label="recipes" role="recipes" id="favRecipes" {...provided.droppableProps} ref={provided.innerRef}>
           {renderRecipes}{provided.placeholder}
         </section>
       )}

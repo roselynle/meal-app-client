@@ -1,14 +1,14 @@
-import React, { useState }  from 'react';
+import React, { useState } from 'react';
 import "../../App.css";
 import { useHistory } from 'react-router-dom'
-import {apiUrl} from '../../../config/config.js';
+import { apiUrl } from '../../../config/config.js';
 
-const RegisterForm = () =>  {
+const RegisterForm = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
 
     const history = useHistory()
 
@@ -42,9 +42,9 @@ const RegisterForm = () =>  {
             }
             const r = await fetch(`${apiUrl}/register`, options)
             const data = await r.json()
-            if (data.err){ throw Error(data.err) }
-            if (data.status === 500) {alert("registration unsuccessful")}
-            setError();
+            if (data.err) { throw new Error(data.err) }
+            if (data.status === 500) { alert("registration unsuccessful") }
+            setError("");
             login(userData);
             history.push('/meals')
         } catch (err) {
@@ -53,39 +53,39 @@ const RegisterForm = () =>  {
         }
     }
 
-function login(data){
-    sessionStorage.setItem('username', data.username);
-}
+    function login(data) {
+        sessionStorage.setItem('username', data.username);
+    }
 
-        return (
-<>
-                <form onSubmit={handleRegister} id="register-form">
-                    <div className="register-input">
-                        <label htmlFor="username">Username:</label>
-                        <input role="register-input" type="text" name="username" onChange={handleUsername} />
-                    </div>
-                    <div className="register-input">
-                        <label htmlFor="email">Email:</label>
-                        <input role="register-input" type="text" name="email" onChange={handleEmail}/>
-                    </div>
-                    <div className="register-input">
-                        <label htmlFor="password">Password:</label>
-                        <input role="register-input" type="password" name="password" onChange={handlePassword}/>
-                    </div>
-                   <div className="register-input">
-                        <label htmlFor="password">Confirm Password:</label>
-                        <input type="password" name="passwordConfirmation" onChange={handlePasswordConfirmation}/>
-                    </div>                 
-                    <div className="register-button">
-                    <input role="register" type="submit" className={missingInfo() ? 'disabled' : 'enabled'} disabled={missingInfo()} value="Register"/>
+    return (
+        <>
+            <form onSubmit={handleRegister} id="register-form">
+                <div className="register-input">
+                    <label htmlFor="username">Username:</label>
+                    <input role="register-input" type="text" name="username" aria-label="username" onChange={handleUsername} value={username}/>
                 </div>
-                </form>
-                <div>
-                                    { error ? <p role="error">{error}</p> : ""}
-                                    {formIncomplete() ? <p>Passwords do not match</p>  : ""}
-                    </div>
-</>
+                <div className="register-input">
+                    <label htmlFor="email">Email:</label>
+                    <input role="register-input" type="text" name="email" aria-label="email" onChange={handleEmail} value={email}/>
+                </div>
+                <div className="register-input">
+                    <label htmlFor="password">Password:</label>
+                    <input role="register-input" type="password" name="password" aria-label="password" onChange={handlePassword} value={password}/>
+                </div>
+                <div className="register-input">
+                    <label htmlFor="password">Confirm Password:</label>
+                    <input role="register-input" type="password" name="passwordConfirmation" aria-label="passwordConfirm" onChange={handlePasswordConfirmation}/>
+                </div>
+                <div className="register-button">
+                    <input role="register" type="submit" className={missingInfo() ? 'disabled' : 'enabled'} disabled={missingInfo()} value="Register" />
+                </div>
+            </form>
+            <div>
+                {error != "" ? <p role="error">{error}</p> : ""}
+                {formIncomplete() ? <p>Passwords do not match</p> : ""}
+            </div>
+        </>
 
-        )
+    )
 }
 export default RegisterForm;

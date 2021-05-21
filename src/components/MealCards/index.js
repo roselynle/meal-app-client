@@ -22,7 +22,7 @@ const MealCards = ({ mealPlan }) => {
             <Droppable droppableId={`day${d.id}`} key={index}>
                 {(provided) => (
                     <div key={index} className="meal-card" {...provided.droppableProps} ref={provided.innerRef}>
-                        <div className="meal-card-body">
+                        <div role="day" className="meal-card-body">
                             <h4 className="meal-card-title">Day {d.day}</h4>
                             <div>
                                 {mealPlan[`day${d.id}`] ? <RecipeCards recipe={mealPlan[`day${d.id}`]} hideSave={true} hideDescription={true} /> : <p>Choose a meal</p>}
