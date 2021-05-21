@@ -8,7 +8,7 @@ const RegisterForm = () => {
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("")
     const [passwordConfirmation, setPasswordConfirmation] = useState("");
-    const [error, setError] = useState()
+    const [error, setError] = useState("")
 
     const history = useHistory()
 
@@ -42,10 +42,9 @@ const RegisterForm = () => {
             }
             const r = await fetch(`${apiUrl}/register`, options)
             const data = await r.json()
-            console.log(data)
             if (data.err) { throw new Error(data.err) }
             if (data.status === 500) { alert("registration unsuccessful") }
-            setError();
+            setError("");
             login(userData);
             history.push('/meals')
         } catch (err) {
@@ -75,14 +74,14 @@ const RegisterForm = () => {
                 </div>
                 <div className="register-input">
                     <label htmlFor="password">Confirm Password:</label>
-                    <input type="password" name="passwordConfirmation" onChange={handlePasswordConfirmation}/>
+                    <input role="register-input" type="password" name="passwordConfirmation" aria-label="passwordConfirm" onChange={handlePasswordConfirmation}/>
                 </div>
                 <div className="register-button">
                     <input role="register" type="submit" className={missingInfo() ? 'disabled' : 'enabled'} disabled={missingInfo()} value="Register" />
                 </div>
             </form>
             <div>
-                {error ? <p role="error">{error}</p> : ""}
+                {error != "" ? <p role="error">{error}</p> : ""}
                 {formIncomplete() ? <p>Passwords do not match</p> : ""}
             </div>
         </>
